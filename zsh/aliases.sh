@@ -20,3 +20,4 @@ alias gv='git log --graph --decorate --oneline'
 alias l="ls -alG"
 alias o="xdg-open ."
 alias open="xdg-open"
+alias vpn="pulseUi"
