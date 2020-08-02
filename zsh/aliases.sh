@@ -21,3 +21,6 @@ alias l="ls -alG"
 alias o="xdg-open ."
 alias open="xdg-open"
 alias vpn="pulseUi"
+
+# Todoist
+alias td="todoist"
