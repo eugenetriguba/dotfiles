@@ -50,6 +50,8 @@ Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
+Plug 'rhysd/vim-clang-format'
+Plug 'vim-scripts/c.vim'
 
 call plug#end()
 
