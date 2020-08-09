@@ -12,3 +12,6 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 # Pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
+
+# Yarn
+export PATH="$PATH:$(yarn global bin)"
