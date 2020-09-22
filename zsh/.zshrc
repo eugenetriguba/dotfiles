@@ -1,7 +1,6 @@
 source ~/Code/dotfiles/zsh/exports.sh
 source ~/Code/dotfiles/zsh/aliases.sh
 source ~/Code/dotfiles/zsh/pyenv.sh
-source ~/Code/dotfiles/zsh/op_completion.sh
 source ~/Code/dotfiles/zsh/funcs.sh
 
 ZSH_THEME="agnoster"
