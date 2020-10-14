@@ -9,3 +9,6 @@
 
 [alias]
 	undo = git reset HEAD~
+[pull]
+	rebase = true
+	ff = only
