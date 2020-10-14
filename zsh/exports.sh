@@ -19,3 +19,9 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 # Yarn
 export PATH="$PATH:$(yarn global bin)"
+
+# Pipx
+export PATH="$PATH:/home/eugene/.local/bin"
+
+# Default Editor
+export EDITOR="vim"
