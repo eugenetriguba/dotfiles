@@ -50,8 +50,13 @@ Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
+
+" C
 Plug 'rhysd/vim-clang-format'
 Plug 'vim-scripts/c.vim'
+
+" Java
+Plug 'artur-shaik/vim-javacomplete2'
 
 call plug#end()
 
