@@ -1,0 +1,213 @@
+# Set mod variable to super key
+set $mod Mod4
+
+# Font for window titles. 
+# This will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango: System San Francisco Display 16
+
+# Turn borders off
+for_window [class="^.*"] border pixel 0
+
+# Change gap size
+gaps outer 4
+gaps inner 20
+gaps top 62
+
+# Drag floating windows
+floating_modifier $mod
+
+# Start a URxvt terminal emulator instance
+bindsym $mod+Return exec urxvt
+
+# Kill focused window
+bindsym $mod+q kill
+
+# Start window "resize" mode
+bindsym $mod+r mode "resize"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    # These bindings trigger as soon as you enter the resize mode
+
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym semicolon resize grow width 10 px or 10 ppt
+
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+# Start rofi drun menu
+bindsym $mod+space exec $HOME/.config/scripts/rofi/launch.sh drun 
+
+# Bind key to betterlockscreen (-git)
+bindsym --release $mod+l exec betterlockscreen -l blur
+
+# Set up screenshots and partial screenshots
+bindsym --release Print exec maim ~/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym --release Shift+Print exec maim -s ~/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+
+# Bind audio keys to volume control
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
+bindsym XF86AudioMute exec amixer set Master toggle
+
+# Path to volume control, without trailing slash
+set $volumepath ~/.config/i3-volume
+
+# Bind brightness keys to light interface
+bindsym XF86MonBrightnessUp exec sudo light -A 5
+bindsym XF86MonBrightnessDown exec sudo light -U 5
+
+# Move focus with the arrow keys
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move windows with shift + arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Split in specified direction
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# Change container layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+Control+space focus mode_toggle
+
+# Bind keys to switch to next workspace
+bindsym $mod+bracketright workspace next
+bindsym $mod+bracketleft workspace prev
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1 "
+set $ws2 "2 "
+set $ws3 "3 "
+set $ws4 "4 "
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10 "
+
+# Switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart i3 inplace
+bindsym $mod+Shift+r restart
+
+# Exit i3
+bindsym $mod+Shift+e exec $HOME/.config/scripts/rofi/launch.sh powermenu
+
+# Add resize keybindings in place of mode
+bindsym $mod+Control+Left resize shrink width 10 px or 10
+bindsym $mod+Control+Down resize grow height 10 px or 10
+bindsym $mod+Control+Up resize shrink height 10 px or 10
+bindsym $mod+Control+Right resize grow width 10 px or 10
+bindsym $mod+Shift+Control+Left resize shrink width 1 px or 1
+bindsym $mod+Shift+Control+Down resize grow height 1 px or 1
+bindsym $mod+Shift+Control+Up resize shrink height 1 px or 1
+bindsym $mod+Shift+Control+Right resize grow width 1 px or 1
+
+# mpv music controller bindings
+set $controller $HOME/.config/scripts/mpv-controller.sh
+bindsym $mod+Shift+P exec $controller pause
+bindsym $mod+Shift+bracketleft exec $controller prev
+bindsym $mod+Shift+bracketright exec $controller next
+bindsym $mod+Shift+semicolon exec $controller skip -10
+bindsym $mod+Shift+apostrophe exec $controller skip 10
+bindsym $mod+Shift+comma exec $controller skipper -5
+bindsym $mod+Shift+period exec $controller skipper 5
+bindsym $mod+Shift+m exec $HOME/.config/scripts/rofi/launch.sh music
+bindsym $mod+Shift+l exec $controller stop
+bindsym $mod+Shift+o exec $controller info
+bindsym $mod+Shift+minus exec $controller vol -10
+bindsym $mod+Shift+equal exec $controller vol 10
+
+# Always float certain windows
+for_window [class="mpv"] floating enable
+for_window [class="Pavucontrol"] floating enable
+
+# Make sure fonts are loaded right
+exec_always xset +fp $HOME/.fonts/
+exec_always xset fp rehash
+
+# Run startup wallpaper
+exec_always --no-startup-id feh --bg-scale /home/eugene/.config/wallpapers/5k-sierra-wallpaper.jpg
+
+# Allow scripts to interface with dbus
+exec_always --no-startup-id $HOME/.config/scripts/Xdbus.sh
+
+# Start notification daemon
+exec_always --no-startup-id dunst
+
+# Enable tap to click - will need to change input
+# device id and property number. See [link] for more
+exec_always --no-startup-id xinput set-prop 12 284 1 > /dev/null 2>&1
+
+# Startup daemons for compositor and status bar
+exec_always --no-startup-id pkill picom; picom --no-use-damage
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# Increase screen contrast (disable for better displays)
+exec_always --no-startup-id xrandr --output eDP --gamma 0.8:0.8:0.8
+
+# Use URxvt settings from Xresources
+exec_always --no-startup-id xrdb ~/.Xresources
+
+# Start pulseaudio
+exec --no-startup-id pulseaudio --start
