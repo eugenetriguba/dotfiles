@@ -108,7 +108,7 @@
     max_icon_size = 40
 
     # Paths to default icons.
-    icon_path = $HOME/.icons/Reversal-blue/apps/scalable:/usr/share/icons/Adwaita/256x256/legacy/
+    icon_path = /home/eugene/.icons/Reversal-blue/apps/scalable:/usr/share/icons/Adwaita/256x256/legacy/
 
 
     # --- History --- #

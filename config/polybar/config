@@ -13,7 +13,7 @@ width = 100%:-48
 offset-x = 24
 offset-y = 24
 
-height = 36
+height = 48
 radius = 0.0
 
 override-redirect = true
@@ -27,12 +27,12 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 1
 
-font-0 = Hack:pixelsize=11:antialias=true;2.5
+font-0 = Hack:pixelsize=16:antialias=true;2.5
 font-1 = Hack:style=Regular:pixelsize=17:antialias=true;3
 
 modules-left = i3
 modules-center = xwindow
-modules-right = audio wlan battery date powermenu
+modules-right = audio wlan date powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -40,7 +40,7 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:25:...%
+label = %title:0:150:...%
 
 
 [module/filesystem]
@@ -63,17 +63,17 @@ wrapping-scroll = false
 reverse-scroll = false
 fuzzy-match = true
 
-ws-icon-default = "  "
-ws-icon-0 = "0;0  "
-ws-icon-1 = "1;%{T2}%{T-}  "
-ws-icon-2 = "2;%{T2}%{T-}  "
-ws-icon-3 = "3;  "
+ws-icon-default = "d  "
+ws-icon-0 = "0;10  "
+ws-icon-1 = "1;1  "
+ws-icon-2 = "2;2  "
+ws-icon-3 = "3;3  "
 ws-icon-4 = "4;4  "
 ws-icon-5 = "5;5  "
 ws-icon-6 = "6;6  "
 ws-icon-7 = "7;7  "
-ws-icon-8 = "8;  "
-ws-icon-9 = "9;  "
+ws-icon-8 = "8;8  "
+ws-icon-9 = "9;9  "
 
 format = <label-state>
 
@@ -99,7 +99,7 @@ type = internal/backlight
 card = radeon_bl0
 
 format = <label>
-label = "  %percentage%%"
+label = "B  %percentage%%"
 label-foreground = ${colors.tertiary}
 
 
@@ -148,60 +148,19 @@ label-volume-foreground = ${colors.secondary}
 ramp-volume-foreground = ${colors.secondary}
 label-volume = 
 
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
+ramp-volume-0 = 0
+ramp-volume-1 = 1
+ramp-volume-2 = 2
 
-label-muted = ﱝ
+label-muted = M
 label-muted-foreground = ${colors.secondary}
-
-
-[module/battery]
-type = internal/battery
-battery = BAT1
-adapter = ADP1
-full-at = 98
-
-format-charging = <ramp-capacity>
-format-discharging = <ramp-capacity>
-
-label-full =  
-label-full-foreground = ${colors.fourth}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-5 = 
-ramp-capacity-6 = 
-ramp-capacity-7 = 
-ramp-capacity-8 = 
-ramp-capacity-9 = 
-ramp-capacity-foreground = ${colors.fourth}
-
-label-discharging =
-label-discharging-foreground = ${colors.fourth}
-label-charging-foreground = ${colors.fourth}
 
 [module/powermenu]
 type = custom/text
 format-spacing = 1
-content = 
+content = PM
 content-foreground = ${colors.alert}
-click-left = bash ~/Scripts/rofi/launch.sh powermenu
-
-[module/i3-volume]
-type = custom/script
-tail = true
-label = %output%
-exec = $HOME/.config/i3-volume/volume listen "%i %v %p\n"
-scroll-up = $HOME/.config/i3-volume/volume up
-scroll-down = $HOME/.config/i3-volume/volume down
-click-left = $HOME/.config/i3-volume/volume mute
-click-right = exec pavucontrol &
-
-modules-right = i3-volume
+click-left = bash $HOME/.config/scripts/rofi/launch.sh powermenu
 
 [settings]
 screenchange-reload = true
