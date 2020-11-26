@@ -6,8 +6,6 @@
 
 confirm_prompt "This will install the tools needed for the dotfiles using pacman and yay"
 
-exit 0
-
 echo "Running full system upgrade.."
 sudo pacman -Syu
 
