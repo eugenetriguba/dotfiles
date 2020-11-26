@@ -15,7 +15,7 @@ echo "Installing pacman packages.."
 sudo pacman -S vim pyenv yarn sway termite
 
 echo "Installing AUR packages using yay.."
-yay -S nvm pyenv-virtualenv oh-my-bash-git vim-plug
+yay -S nvm pyenv-virtualenv oh-my-bash-git vim-plug ly
 
 echo "Installing vim plugins.."
 vim +'PlugInstall --sync' +qa
