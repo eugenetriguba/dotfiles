@@ -2,15 +2,11 @@
 #
 # Installs packages and tools I use.
 
-echo -en "This will do a full system update, install packages using pacman, and " \
-         "run various remote scripts in order to install tools such as nvm. into " \
-         "your $HOME/.config and $HOME directory. " \
-         "Do you wish to continue? (\e[31my\e[0m/\e[32mn\e[0m)"
+. ./helpers.bash
 
-read cont
-if [[ "$cont" != "y" ]]; then
-    exit 1
-fi
+confirm_prompt "This will install the tools needed for the dotfiles using pacman and yay"
+
+exit 0
 
 echo "Running full system upgrade.."
 sudo pacman -Syu

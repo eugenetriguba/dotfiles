@@ -18,8 +18,8 @@ $ cd dotfiles
 And then we can install the dotfiles by creating symlinks and install
 the packages we need for the dotfiles.
 ```
-$ ./install_dotfiles.sh
-$ ./install_packages.sh
+$ ./install_dotfiles.bash
+$ ./install_packages.bash
 ```
 
 `install_dotfiles` will symlink all our `config/` folders into `$HOME/.config/`
