@@ -35,7 +35,6 @@ set backspace=indent,eol,start
 " plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'fatih/vim-go'
 Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
@@ -51,12 +50,15 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 
+" Go
+" Plug 'fatih/vim-go'
+
 " C
-Plug 'rhysd/vim-clang-format'
-Plug 'vim-scripts/c.vim'
+" Plug 'rhysd/vim-clang-format'
+" Plug 'vim-scripts/c.vim'
 
 " Java
-Plug 'artur-shaik/vim-javacomplete2'
+" Plug 'artur-shaik/vim-javacomplete2'
 
 call plug#end()
 
