@@ -1,5 +1,9 @@
+" Syntax highlighting
 syntax on
 colo pablo
+
+" Turn on python syntax highlighting
+let python_highlight_all=1
 
 " Flash screen instead of beep sound
 set visualbell
@@ -12,6 +16,10 @@ set fileencoding=utf-8
 
 " Set line numbers
 set number
+
+" Specify different areas of the screen where splits should occur
+set splitbelow
+set splitright
 
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd Filetype go setlocal tabstop=4 shiftwidth=4 softtabstop=4
@@ -49,6 +57,16 @@ Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
+
+" Markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
+" Check syntax on save
+Plug 'vim-syntastic/syntastic'
+
+" Python
+Plug 'nvie/vim-flake8'
 
 " Go
 " Plug 'fatih/vim-go'
@@ -99,4 +117,10 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+" split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
