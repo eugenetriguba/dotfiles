@@ -39,3 +39,9 @@ export BROWSER="firefox"
 # Wayland Support
 #
 export MOZ_ENABLE_WAYLAND=1
+
+#
+# Qt
+#
+export QT_SCALE_FACTOR=2
+export QT_AUTO_SCREEN_SCALE_FACTOR=1

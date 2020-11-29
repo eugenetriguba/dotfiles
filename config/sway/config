@@ -19,7 +19,7 @@ set $term termite
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
+output * bg $HOME/.config/wallpapers/5k-big-sur-color-day.jpg fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output DP-1 resolution 3840x2160 position 3840,0
@@ -61,7 +61,7 @@ input "1133:45081:MX_Master_2S_Mouse" {
 
     # Start the application launcher
     bindsym $mod+d exec $term --name=launcher -e \
-	"bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec'"
+        "bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec'"
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -207,9 +207,22 @@ bar {
 }
 
 #
-# Window Custimizations
+# Window Customizations
 #
 for_window [app_id="^launcher$"] floating enable, border none
+
+#
+# Media key bindings
+#
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86AudioPlay --locked exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 #
 # Include rest of configuration files
