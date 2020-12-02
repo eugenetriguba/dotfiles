@@ -25,4 +25,4 @@ alias vi="vim"
 alias logout="kill -9 -1"
 
 # Work-related
-alias vpn="nohup /usr/local/pulse/pulseUi > ~/.pulse_secure/pulse/pulse-output.log &"
+alias vpn="nohup /usr/local/pulse/pulseUi >| ~/.pulse_secure/pulse/pulse-output.log &"
