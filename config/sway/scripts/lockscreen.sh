@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# Lock the screen using a fork of swaylock
+# called swaylock-effects
+#
+swaylock \
+        --daemonize \
+        --screenshots \
+        --clock \
+        --indicator \
+        --indicator-radius 100 \
+        --indicator-thickness 7 \
+        --effect-blur 7x5 \
+        --effect-vignette 0.5:0.5 \
+        --ring-color A6A6A6 \
+        --key-hl-color ffffff \
+        --line-color 00000000 \
+        --inside-color 00000088 \
+        --separator-color 00000000 \
+        --grace 2 \
+        --fade-in 0.2 \
+        --text-color ffffff \
+        --font-size 28

@@ -35,9 +35,9 @@ font pango: System San Francisco Display 16
 # when resumed. It will also lock your screen before the computer goes to
 # sleep.
 exec swayidle -w \
-     timeout 300 'swaylock -f -c 000000' \
+     timeout 300 '$HOME/.config/sway/scripts/lockscreen.sh' \
      timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-     before-sleep 'swaylock -f -c 000000'
+     before-sleep '$HOME/.config/sway/scripts/lockscreen.sh'
 
 ### Input configuration
 #
@@ -216,6 +216,8 @@ for_window [app_id="^launcher$"] floating enable, border none
 #
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 
+input * xkb_numlock enable
+
 #
 # Media key bindings
 #
@@ -228,6 +230,11 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+#
+# On Startup
+#
+exec --no-startup-id gammastep -m wayland -l 43.5:-96.7 -t 6500:3500
 
 #
 # Include rest of configuration files
