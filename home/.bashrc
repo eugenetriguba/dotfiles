@@ -10,4 +10,3 @@ source $HOME/.config/shell/aliases.sh
 source $HOME/.config/shell/exports.sh
 source $HOME/.config/shell/funcs.sh
 source $HOME/.config/shell/pyenv.sh
-

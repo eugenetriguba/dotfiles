@@ -36,6 +36,16 @@ export EDITOR="vim"
 export BROWSER="firefox"
 
 #
+# Fix 'unknown terminal xterm-termite'
+#
+export TERM="xterm-256color"
+
+#
+# Fix vim youcompleteme issues with pyenv
+#
+export PYTHON_CONFIGURE_OPTS="--enable-shared"
+
+#
 # Wayland Support
 #
 export MOZ_ENABLE_WAYLAND=1
@@ -43,5 +53,5 @@ export MOZ_ENABLE_WAYLAND=1
 #
 # Qt
 #
-export QT_SCALE_FACTOR=2
+export QT_SCALE_FACTOR=1.5
 export QT_AUTO_SCREEN_SCALE_FACTOR=0

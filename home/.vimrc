@@ -58,10 +58,6 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 
-" Markdown
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-
 " Check syntax on save
 Plug 'vim-syntastic/syntastic'
 

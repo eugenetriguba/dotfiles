@@ -66,8 +66,6 @@ aliases=(
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-
-
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -100,4 +98,5 @@ BASH_CACHE_DIR=$HOME/.cache/oh-my-bash
 if [[ ! -d $BASH_CACHE_DIR ]]; then
    mkdir $BASH_CACHE_DIR
 fi
+
 source $OSH/oh-my-bash.sh
