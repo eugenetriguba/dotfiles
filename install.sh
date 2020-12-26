@@ -38,10 +38,10 @@ echo "Running full system upgrade.."
 sudo pacman -Syu
 
 echo "Installing pacman packages.."
-sudo pacman -S vim pyenv yarn sway termite python-poetry python-pipx playerctl swayidle gammastep
+sudo pacman -S vim pyenv yarn sway termite python-poetry python-pipx playerctl swayidle gammastep jq
 
 echo "Installing AUR packages using yay.."
-yay -S nvm pyenv-virtualenv oh-my-bash-git vim-plug ly wob swaylock-effects
+yay -S nvm pyenv-virtualenv oh-my-bash-git vim-plug ly wob swaylock-effects j4-dmenu-desktop bemenu
 
 echo "Installing vim plugins.."
 vim +'PlugInstall --sync' +qa
@@ -62,6 +62,10 @@ done
 
 for file in $(ls -a ${dotfiles_dir}/home); do
     ln -s ${dotfiles_dir}/home/${file} ${HOME}/${file}
+done
+
+for file in $(ls -a ${dotfiles_dir}/local/bin); do
+    ln -s ${dotfiles_dir}/local/bin/${file} ${HOME}/.local/bin/${file}
 done
 
 echo "Created symlinks for dotfiles!"

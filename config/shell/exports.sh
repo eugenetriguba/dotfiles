@@ -21,6 +21,10 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 
 #
+# Custom scripts
+#
+export PATH="$HOME/.local/bin:$PATH"
+#
 # JavaScript/Node
 #
 # NVM is used to manage versions of node separate

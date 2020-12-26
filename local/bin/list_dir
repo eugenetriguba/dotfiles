@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/env python3
 
 import argparse
 import os
@@ -39,11 +39,17 @@ def get_filelist(path: Union[str, Path]) -> list:
 if __name__ == '__main__':
    parser = argparse.ArgumentParser(
        prog='list_dir',
-       description='Retrieve a list of files from a directory'
+       description='Recursively retrieve all files from a directory and its subdirectories'
     )
-   parser.add_argument('path', type=str, help='The path to search')
-   parser.add_argument('-of', '--only-filename', action='store_true', help='list only the filenames')
-   parser.add_argument('-s', '--sort', action='store_true', help='sort the list of files')
+   parser.add_argument(
+       'path', help='The path to search'
+    )
+   parser.add_argument(
+       '-of', '--only-filename', action='store_true', help='list only the filenames'
+    )
+   parser.add_argument(
+       '-s', '--sort', action='store_true', help='sort the list of files'
+    )
    args = parser.parse_args()
 
    filelist = get_filelist(args.path)
