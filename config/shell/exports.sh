@@ -24,6 +24,7 @@ export PATH="$PATH:$HOME/.local/bin"
 # Custom scripts
 #
 export PATH="$HOME/.local/bin:$PATH"
+
 #
 # JavaScript/Node
 #
@@ -59,3 +60,13 @@ export MOZ_ENABLE_WAYLAND=1
 #
 export QT_SCALE_FACTOR=1.5
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
+
+#
+# C
+#
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
+
+#
+# Java & i3/Sway fixes
+#
+export _JAVA_AWT_WM_NONREPARENTING=1
