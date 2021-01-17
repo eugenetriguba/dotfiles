@@ -12,3 +12,7 @@
 [pull]
 	rebase = true
 	ff = only
+[fetch]
+	prune = true
+[diff]
+	colorMoved = zebra
