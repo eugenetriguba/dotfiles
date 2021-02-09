@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+#
+# GNOME 3.32 has super+number key combos that don't show up in the
+# keyboard shortcuts. This script sets them to do nothing, allowing
+# super+# to be set to something else.
+#
+for i in {1..9}; do gsettings set "org.gnome.shell.keybindings" "switch-to-application-$i" "[]"; done

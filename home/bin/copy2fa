@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+#
+# Use rsc's 2fa program to grab a
+# certain 2fa code to the clipboard
+# on Wayland.
+
+if [ "$1" = "" ]; then
+    echo "Usage: copy2fa [name]"
+    exit 1
+fi
+
+2fa -clip "$1" | wl-copy

@@ -1,0 +1,9 @@
+font=SF Display Pro 16
+width=400
+height=200
+border-size=3
+background-color=#1d2021ed
+text-color=#ebdbb2
+border-color=#458588
+default-timeout=5000
+ignore-timeout=1

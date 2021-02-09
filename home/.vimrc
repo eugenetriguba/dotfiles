@@ -17,6 +17,9 @@ set fileencoding=utf-8
 " Set line numbers
 set number
 
+" don't break up words at end of window width
+set linebreak
+
 " Specify different areas of the screen where splits should occur
 set splitbelow
 set splitright
@@ -58,6 +61,12 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 
+" Distraction-free writing
+" :Goyo             to toggle
+" :Goyo!            to turn off
+" :Goyo [dimension] to resize
+Plug 'junegunn/goyo.vim'
+
 " Check syntax on save
 Plug 'vim-syntastic/syntastic'
 
@@ -65,7 +74,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
 
 " Go
-" Plug 'fatih/vim-go'
+Plug 'fatih/vim-go'
 
 " C
 " Plug 'rhysd/vim-clang-format'

@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+#
+# Records the desktop
+#
+# Usage: record [filename]
+
+if [ "$1" = "" ]; then
+    wf-recorder
+fi
+
+wf-recorder -f "$1"
+

@@ -19,11 +19,10 @@ export PATH=$PATH:$GOROOT/bin
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
-
 #
 # Custom scripts
 #
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 #
 # JavaScript/Node
@@ -70,3 +69,9 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
 # Java & i3/Sway fixes
 #
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+#
+# Task Warrior
+#
+export TASKRC="$HOME/.config/task/taskrc"
+export TASKDATA="$HOME/.config/task/data"

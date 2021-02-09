@@ -7,7 +7,7 @@ import sys
 from typing import Union
 
 
-def get_filelist(path: Union[str, Path]) -> list:
+def get_filelist(path: Union[str, Path], top_level: bool = False) -> list:
     """
     Retrieve a list of files from a given path.
 
@@ -33,6 +33,9 @@ def get_filelist(path: Union[str, Path]) -> list:
             lstat = os.lstat(os.path.join(subdir, file))
             filelist.append((file, subdir, lstat.st_ino))
 
+        if top_level:
+            break
+
     return filelist
 
 
@@ -50,9 +53,12 @@ if __name__ == '__main__':
    parser.add_argument(
        '-s', '--sort', action='store_true', help='sort the list of files'
     )
+   parser.add_argument(
+       '-t', '--top-level', action='store_true', help='retrieve only top-level files'
+    )
    args = parser.parse_args()
 
-   filelist = get_filelist(args.path)
+   filelist = get_filelist(args.path, top_level=args.top_level)
 
    if args.sort:
        filelist.sort(key = lambda x: x[0])

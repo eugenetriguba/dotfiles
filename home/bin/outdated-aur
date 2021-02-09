@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+#
+# Checks AUR packages to see if they are out of date.
+
+for package_name in $(list_dir --top-level --only-filename --sort  ~/.aur); do
+    aur-out-of-date -pkg $package_name
+done

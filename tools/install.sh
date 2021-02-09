@@ -40,14 +40,14 @@ sudo pacman -Syu
 echo "Installing pacman packages.."
 sudo pacman -S vim pyenv yarn sway termite python-poetry python-pipx playerctl swayidle gammastep jq
 
-echo "Installing AUR packages using yay.."
-yay -S nvm pyenv-virtualenv oh-my-bash-git vim-plug ly wob swaylock-effects j4-dmenu-desktop bemenu
+#echo "Installing AUR packages using yay.."
+#yay -S nvm pyenv-virtualenv oh-my-bash-git vim-plug ly wob swaylock-effects j4-dmenu-desktop bemenu
 
 echo "Installing vim plugins.."
 vim +'PlugInstall --sync' +qa
 
 echo "Installing fonts.."
-yay -S otf-san-francisco-pro otf-san-francisco nerd-fonts-complete
+#yay -S otf-san-francisco-pro otf-san-francisco nerd-fonts-complete
 sudo pacman -S ttf-fira-code ttf-font-awesome adobe-source-code-pro-fonts
  
 echo "Finished installing packages."

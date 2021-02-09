@@ -12,4 +12,3 @@ if [ -e "$HOME/.pyenv/.pyenvrc" ]; then
 fi
 
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
