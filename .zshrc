@@ -1,3 +1,4 @@
+autoload -Uz vcs_info
 zstyle ":vcs_info:*" enable git svn
 zstyle ':vcs_info:git:*' formats '%F{green}(%b)%f '
 precmd() {
