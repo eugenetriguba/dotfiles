@@ -1,4 +1,3 @@
-autoload -Uz vcs_info
 zstyle ":vcs_info:*" enable git svn
 zstyle ':vcs_info:git:*' formats '%F{green}(%b)%f '
 precmd() {
@@ -40,6 +39,12 @@ eval "$(pyenv init -)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export PNPM_HOME="/Users/eugene/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
 export LDFLAGS="-L/opt/homebrew/lib"
 export CPPFLAGS="-I/opt/homebrew/include"
@@ -89,3 +94,4 @@ gocover() {
     t="/tmp/go-cover.$$.tmp"
     go test -coverprofile=$t $@ && go tool cover -html=$t && unlink $t
 }
+
