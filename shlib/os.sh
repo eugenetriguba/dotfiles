@@ -13,3 +13,7 @@ os_is_macos() {
 os_is_linux() {
   [ "$(os_print)" = "Linux" ]
 }
+
+os_is_freebsd() {
+  [ "$(os_print)" = "FreeBSD" ]
+}

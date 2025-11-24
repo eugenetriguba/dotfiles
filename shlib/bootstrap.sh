@@ -27,3 +27,7 @@ bootstrap_macos() {
 bootstrap_linux() {
   return 0
 }
+
+bootstrap_freebsd() {
+  xargs doas pkg install -y < "$(dirname "$0")/pkg/packages.txt"
+}

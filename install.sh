@@ -8,31 +8,32 @@ set -e
 
 main() {
   if os_is_macos; then
-    if ! bootstrap_macos; then
-      log_error "Failed to bootstrap install script"
-      exit 1
-    fi
+    bootstrap_macos
   elif os_is_linux; then
-    if ! bootstrap_linux; then
-      log_error "Failed to bootstrap install script"
-      exit 1
-    fi
+    bootstrap_linux
+  elif os_is_freebsd; then
+    bootstrap_freebsd
   else
     log_error "Unexpected OS: $(os_print)"
     exit 1
-  fi
+  fi || {
+    log_error "Failed to bootstrap install script"
+    exit 1
+  }
 
+  if os_is_macos; then
+    stow ghostty
+    stow atuin
+  fi
   stow executables
   stow nvim
   stow zsh
   stow git
   stow gpg
   stow tmux
-  stow ghostty
   stow aerc
   stow isync
   stow msmtp
-  stow atuin
   stow lazygit
   log_success "Successfully linked all dotfiles."
 

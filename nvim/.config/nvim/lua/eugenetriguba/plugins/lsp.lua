@@ -103,86 +103,86 @@ return {
 
       local capabilities = require('blink.cmp').get_lsp_capabilities()
       local servers = {
-        clangd = {},
+        -- clangd = {},
         gopls = {},
-        pyright = {
-          settings = {
-            python = {
-              analysis = {
-                autoImportCompletions = true,
-              },
-            },
-          },
-        },
-        rust_analyzer = {},
+        -- pyright = {
+        --   settings = {
+        --     python = {
+        --       analysis = {
+        --         autoImportCompletions = true,
+        --       },
+        --     },
+        --   },
+        -- },
+        -- rust_analyzer = {},
         -- NOTE: https://github.com/pmizio/typescript-tools.nvim may be a better
         -- LSP to use here at some point.
-        ts_ls = {},
-        lua_ls = {
-          settings = {
-            Lua = {
-              completion = {
-                callSnippet = 'Replace',
-              },
-            },
-          },
-        },
-        stylua = {},
-        tailwindcss = {},
-        mesonlsp = {},
-        terraformls = {},
-        bashls = {},
-        jdtls = {
-          settings = {
-            java = {
-              configuration = {
-                updateBuildConfiguration = 'interactive',
-                refreshBundles = true,
-              },
-              completion = {
-                favoriteStaticMembers = {
-                  'org.hamcrest.MatcherAssert.assertThat',
-                  'org.hamcrest.Matchers.*',
-                  'org.hamcrest.CoreMatchers.*',
-                  'org.junit.jupiter.api.Assertions.*',
-                  'java.util.Objects.requireNonNull',
-                  'java.util.Objects.requireNonNullElse',
-                },
-              },
-              contentProvider = { preferred = 'fernflower' },
-              eclipse = {
-                downloadSources = true,
-              },
-              implementationsCodeLens = {
-                enabled = true,
-              },
-              inlayHints = {
-                parameterNames = {
-                  enabled = 'all', -- literals, all, none
-                },
-              },
-              maven = {
-                downloadSources = true,
-              },
-              referencesCodeLens = {
-                enabled = true,
-              },
-              references = {
-                includeDecompiledSources = true,
-              },
-              saveActions = {
-                organizeImports = true,
-              },
-              signatureHelp = { enabled = true },
-              sources = {
-                organizeImports = {
-                  starThreshold = 9999,
-                  staticStarThreshold = 9999,
-                },
-              },
-            },
-          },
-        },
+        -- ts_ls = {},
+        -- lua_ls = {
+        --   settings = {
+        --     Lua = {
+        --       completion = {
+        --         callSnippet = 'Replace',
+        --       },
+        --     },
+        --   },
+        -- },
+        -- stylua = {},
+        -- tailwindcss = {},
+        -- mesonlsp = {},
+        -- terraformls = {},
+        -- bashls = {},
+        -- jdtls = {
+        --   settings = {
+        --     java = {
+        --       configuration = {
+        --         updateBuildConfiguration = 'interactive',
+        --         refreshBundles = true,
+        --       },
+        --       completion = {
+        --         favoriteStaticMembers = {
+        --           'org.hamcrest.MatcherAssert.assertThat',
+        --           'org.hamcrest.Matchers.*',
+        --           'org.hamcrest.CoreMatchers.*',
+        --           'org.junit.jupiter.api.Assertions.*',
+        --           'java.util.Objects.requireNonNull',
+        --           'java.util.Objects.requireNonNullElse',
+        --         },
+        --       },
+        --       contentProvider = { preferred = 'fernflower' },
+        --       eclipse = {
+        --         downloadSources = true,
+        --       },
+        --       implementationsCodeLens = {
+        --         enabled = true,
+        --       },
+        --       inlayHints = {
+        --         parameterNames = {
+        --           enabled = 'all', -- literals, all, none
+        --         },
+        --       },
+        --       maven = {
+        --         downloadSources = true,
+        --       },
+        --       referencesCodeLens = {
+        --         enabled = true,
+        --       },
+        --       references = {
+        --         includeDecompiledSources = true,
+        --       },
+        --       saveActions = {
+        --         organizeImports = true,
+        --       },
+        --       signatureHelp = { enabled = true },
+        --       sources = {
+        --         organizeImports = {
+        --           starThreshold = 9999,
+        --           staticStarThreshold = 9999,
+        --         },
+        --       },
+        --     },
+        --   },
+        -- },
       }
 
       local ensure_installed = vim.tbl_keys(servers or {})

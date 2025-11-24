@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Show manually installed packages on FreeBSD
+#
+# USAGE:
+#   $ pkg_installed
+#
+pkg query -e '%a = 0' '%n'
+
