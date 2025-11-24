@@ -1,0 +1,15 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "position": "top",
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
+    "modules-right": [
+      "cpu",
+      "memory",
+      "battery",
+      "custom/backlight",
+      "pulseaudio",
+      "clock"
+    ],
+	  "include": ["~/.config/waybar/modules.json"]
+}
