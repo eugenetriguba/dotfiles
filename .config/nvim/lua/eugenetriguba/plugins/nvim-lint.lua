@@ -4,6 +4,7 @@ vim.pack.add {
     src = 'https://github.com/mfussenegger/nvim-lint',
   },
 }
+
 -- Default linters, which will cause errors unless these tools are available:
 -- {
 --   clojure = { "clj-kondo" },
@@ -18,8 +19,8 @@ vim.pack.add {
 --   text = { "vale" }
 -- }
 --
--- They can be disabled by setting their filetypes to nil:
--- lint.linters_by_ft['clojure'] = nil
+-- Linters can be disabled by setting their filetypes to nil:
+--    lint.linters_by_ft['clojure'] = nil
 local lint = require 'lint'
 lint.linters_by_ft = lint.linters_by_ft or {}
 lint.linters_by_ft['cpp'] = { 'cppcheck' }
@@ -32,6 +33,7 @@ lint.linters_by_ft['text'] = nil
 lint.linters_by_ft['xml'] = { 'xmllint' }
 lint.linters_by_ft['sh'] = { 'shellcheck' }
 table.insert(lint.linters.shellcheck.args, '-x')
+
 local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
   group = lint_augroup,
