@@ -1,5 +1,5 @@
--- Replace netrw with Oil to work with the file hierarchy as a regular
--- vim buffer.
+-- Replace netrw with Oil to work with the file hierarchy as a regular vim
+-- buffer.
 vim.pack.add {
   {
     name = 'oil',
@@ -15,6 +15,7 @@ require('oil').setup {
     -- Clashes with tmux navigator
     ['<C-l>'] = false,
     ['<C-h>'] = false,
+    -- Remap refresh to a new key, since we just disabled it.
     ['<C-r>'] = 'actions.refresh',
   },
 }
