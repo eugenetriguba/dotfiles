@@ -9,8 +9,8 @@ set -e
 main() {
   if os_is_macos; then
     bootstrap_macos
-  elif os_is_openbsd; then
-    bootstrap_openbsd
+  elif os_is_linux_debian; then
+    bootstrap_linux_debian
   else
     log_error "Unexpected OS: $(os_print)"
     exit 1
@@ -20,20 +20,14 @@ main() {
   }
 
   if os_is_macos; then
-    stow ghostty
     stow macos-gpg
   fi
-  if os_is_openbsd; then
-    stow ksh
-    stow x
-    stow feh
-    stow cwm
-    stow kitty
-    stow lemonbar-xft
-    stow newsboat
-    stow ansiweather
+  if os_is_linux_debian; then
     stow gpg
   fi
+  stow ghostty
+  stow ansiweather
+  stow newsboat
   stow wallpapers
   stow ssh
   stow bin

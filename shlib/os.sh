@@ -13,3 +13,12 @@ os_is_macos() {
 os_is_openbsd() {
   [ "$(os_print)" = "OpenBSD" ]
 }
+
+os_is_linux() {
+  [ "$(os_print)" = "Linux" ]
+}
+
+os_is_linux_debian() {
+  _linux_debian_id=$(. /etc/os-release && echo $ID)
+  [ os_is_linux ] && [ "$_linux_debian_id" = "debian" ]
+}

@@ -1,5 +1,9 @@
 vim.pack.add {
   {
+    name = 'mini.icons',
+    src = 'https://github.com/nvim-mini/mini.icons',
+  },
+  {
     name = 'fzf-lua',
     src = 'https://github.com/ibhagwan/fzf-lua',
   },
