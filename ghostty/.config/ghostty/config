@@ -1,56 +1,78 @@
-# This is the configuration file for Ghostty.
-#
-# This template file has been automatically created at the following
-# path since Ghostty couldn't find any existing config files on your system:
-#
-#   /Users/eugene/Library/Application Support/com.mitchellh.ghostty/config
-#
-# The template does not set any default options, since Ghostty ships
-# with sensible defaults for all options. Users should only need to set
-# options that they want to change from the default.
-#
 # Run `ghostty +show-config --default --docs` to view a list of
 # all available config options and their default values.
 #
-# Additionally, each config option is also explained in detail
-# on Ghostty's website, at https://ghostty.org/docs/config.
-
-# Config syntax crash course
-# ==========================
-# # The config file consists of simple key-value pairs,
-# # separated by equals signs.
-# font-family = Iosevka
-# window-padding-x = 2
-#
-# # Spacing around the equals sign does not matter.
-# # All of these are identical:
-# key=value
-# key= value
-# key =value
-# key = value
-#
-# # Any line beginning with a # is a comment. It's not possible to put
-# # a comment after a config option, since it would be interpreted as a
-# # part of the value. For example, this will have a value of "#123abc":
-# background = #123abc
-#
-# # Empty values are used to reset config keys to default.
-# key =
-#
-# # Some config options have unique syntaxes for their value,
-# # which is explained in the docs for that config option.
-# # Just for example:
-# resize-overlay-duration = 4s 200ms
+# Each config option is also explained in detail on Ghostty's website,
+# at https://ghostty.org/docs/config.
+#theme = Catppuccin Mocha
 theme = "tokyonight"
-font-family = "Hack"
-font-size = 14
-
-keybind = global:cmd+shift+t=toggle_quick_terminal
-quick-terminal-autohide = false
-quick-terminal-screen = main
 
 shell-integration = zsh
+command = /bin/zsh -c "tmux new -A -s home"
+adjust-cell-height = 0%
+copy-on-select = true
+
+font-family = "Hack"
+font-size = 16
+font-thicken = true
+
 mouse-hide-while-typing = true
-scrollback-limit = 1000000
+macos-non-native-fullscreen = visible-menu
 macos-option-as-alt = true
-window-save-state = always 
+macos-titlebar-style = hidden
+
+window-decoration = false
+window-padding-y = 0
+window-padding-x = 0
+window-padding-color = extend
+window-padding-balance = true
+window-save-state = always
+
+# Delete to start of line
+keybind = super+backspace=esc:w
+
+##########################
+# TMUX integration
+#
+# Prefix is Ctrl+a (\x01)
+##########################
+
+# Go to window N (Ctrl+a then number)
+keybind = super+digit_1=text:\x01\x31
+keybind = super+digit_2=text:\x01\x32
+keybind = super+digit_3=text:\x01\x33
+keybind = super+digit_4=text:\x01\x34
+keybind = super+digit_5=text:\x01\x35
+keybind = super+digit_6=text:\x01\x36
+keybind = super+digit_7=text:\x01\x37
+keybind = super+digit_8=text:\x01\x38
+keybind = super+digit_9=text:\x01\x39
+
+# New window: Cmd+t → Ctrl+a c
+keybind = super+t=text:\x01\x63
+
+# Close pane: Cmd+w → Ctrl+a x
+keybind = super+w=text:\x01\x78
+
+# Window switcher (tmux-fzf): Cmd+p → Ctrl+a w
+keybind = super+p=text:\x01\x77
+
+# Rename window: Cmd+r → Ctrl+a ,
+keybind = super+r=text:\x01\x2c
+
+# Previous window: Cmd+h → Ctrl+a p
+keybind = super+h=text:\x01\x70
+
+# Next window: Cmd+l → Ctrl+a n
+keybind = super+l=text:\x01\x6e
+
+# Horizontal split: Cmd+minus → Ctrl+a -
+keybind = super+minus=text:\x01\x2d
+
+# Vertical split: Cmd+backslash → Ctrl+a |
+keybind = super+backslash=text:\x01\x7c
+
+# Toggle zoom: Cmd+z → Ctrl+a z
+keybind = super+z=text:\x01\x7a
+
+# Reload config: Cmd+shift+r → Ctrl+a r
+keybind = super+shift+r=text:\x01\x72

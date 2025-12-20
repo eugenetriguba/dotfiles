@@ -15,5 +15,5 @@ unbind %
 bind-key c new-window -c "#{pane_current_path}"
 
 # Easier configuration reloading and pane killing
-bind-key r source-file ~/.config/tmux/tmux.conf \; display-message "Config reloaded!"
+bind-key r source-file ~/.tmux.conf \; display-message "Config reloaded!"
 bind-key x kill-pane
