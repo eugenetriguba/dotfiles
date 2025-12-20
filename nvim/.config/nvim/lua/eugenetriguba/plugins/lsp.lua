@@ -108,18 +108,10 @@ vim.diagnostic.config {
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 local servers = {
+  prettierd = {},
   clangd = {},
   gopls = {},
-  basedpyright = {
-    settings = {
-      python = {
-        analysis = {
-          autoImportCompletions = true,
-          typeCheckingMode = 'basic',
-        },
-      },
-    },
-  },
+  ty = {},
   rust_analyzer = {},
   ts_ls = {},
   lua_ls = {
@@ -132,7 +124,6 @@ local servers = {
     },
   },
   stylua = {},
-  tailwindcss = {},
   mesonlsp = {},
   terraformls = {},
   bashls = {},
