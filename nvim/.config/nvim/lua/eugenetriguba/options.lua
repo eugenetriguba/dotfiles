@@ -89,3 +89,8 @@ opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
 opt.inccommand = 'split'
+
+-- Enable spell checking
+opt.spell = true
+opt.spelllang = { 'en_us' }
+opt.spellfile = vim.env.HOME .. '/.config/nvim/spell/en.utf-8.add'
