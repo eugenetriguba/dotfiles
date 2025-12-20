@@ -38,6 +38,7 @@ export SAVEHIST=1000000
 #
 # Setup default env variables
 #
+export TERM="xterm-256color"
 export EDITOR="nvim"
 export BROWSER="firefox"
 export GPG_TTY=$(tty)
