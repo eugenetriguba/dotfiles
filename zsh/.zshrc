@@ -1,9 +1,5 @@
 #!/usr/bin/env zsh
 
-if [ "$(uname)" = "OpenBSD" ]; then
-  . ~/.profile
-fi
-
 #
 # Setup Shell Prompt
 #
