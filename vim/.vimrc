@@ -2,6 +2,9 @@
 " Vim's extended features and modern behaviors.
 set nocompatible
 
+" Use system clipboard
+set clipboard=unnamedplus
+
 " Enable a number column with numbers relative
 " to the current line the cursor is on.
 set relativenumber
