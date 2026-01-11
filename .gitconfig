@@ -21,7 +21,7 @@
 [gpg]
 	program = gpg
 [sendemail]
-	sendmailCmd = /opt/homebrew/bin/msmtp -a icloud
+	sendmailCmd = msmtp -a icloud
 	confirm = auto
 	annotate = yes
 	chainreplyto = false
