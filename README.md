@@ -15,7 +15,7 @@ To install only the dotfiles:
 ```sh
 git clone git@github.com:eugenetriguba/dotfiles.git ~/.dotfiles
 cd .dotfiles
-stow --target ~ .
+stow --dir ~ --target ~ .dotfiles
 ```
 
 ### System Setup
