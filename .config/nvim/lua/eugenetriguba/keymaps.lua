@@ -10,6 +10,10 @@ map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+-- Cycle through buffers
+map('n', '<Tab>', ':bnext<CR>')
+map('n', '<S-Tab>', ':bprevious<CR>')
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- to remember.
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
