@@ -16,6 +16,10 @@ setopt prompt_subst
 NEWLINE=$'\n'
 PROMPT=' %2~ ${vcs_info_msg_0_}%# '
 
+# Add 'run-help' for help on built-in shell commands
+(( $+aliases[run-help] )) && unalias run-help
+autoload -Uz run-help
+
 #
 # Setup the zsh shell completion system
 #
