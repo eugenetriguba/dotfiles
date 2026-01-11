@@ -128,6 +128,10 @@
       "rev": "5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd",
       "src": "https://github.com/folke/tokyonight.nvim"
     },
+    "trouble.nvim": {
+      "rev": "bd67efe408d4816e25e8491cc5ad4088e708a69a",
+      "src": "https://github.com/folke/trouble.nvim"
+    },
     "vim-tmux-navigator": {
       "rev": "c45243dc1f32ac6bcf6068e5300f3b2b237e576a",
       "src": "https://github.com/christoomey/vim-tmux-navigator"
