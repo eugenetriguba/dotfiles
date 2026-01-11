@@ -14,6 +14,11 @@ require('fzf-lua').setup {
       default = 'bat',
     },
   },
+  keymap = {
+    fzf = {
+      ['ctrl-q'] = 'select-all+accept',
+    },
+  },
   files = {
     fd_opts = '--type f --hidden --exclude .git',
   },
