@@ -21,7 +21,7 @@ cd .dotfiles
 ### System Setup
 
 I setup my whole system with an ansible playbook using my
-[system-setup](git.sr.ht/~eugenetriguba/system-setup) repository.
+[system-setup](https://git.sr.ht/~eugenetriguba/system-setup) repository.
 
 This installs everything needed onto my system and _then_ symlinks these
 configuration files into my home directory.
