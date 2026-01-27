@@ -40,7 +40,6 @@ export SAVEHIST=1000000
 #
 export TERM="xterm-256color"
 export EDITOR="nvim"
-export BROWSER="firefox"
 export GPG_TTY=$(tty)
 export PAGER="less"
 export MANPAGER="less"
