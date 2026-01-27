@@ -109,6 +109,7 @@ vim.diagnostic.config {
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 local servers = {
   prettierd = {},
+  ansiblels = {},
   clangd = {},
   gopls = {},
   ty = {},
