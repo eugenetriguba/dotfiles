@@ -12,11 +12,6 @@ font-thicken = true
 shell-integration = zsh
 mouse-hide-while-typing = true
 scrollback-limit = 10000
-macos-option-as-alt = true
 window-save-state = always 
 copy-on-select = true
-
-mouse-hide-while-typing = true
-macos-non-native-fullscreen = visible-menu
 macos-option-as-alt = true
-
