@@ -131,6 +131,9 @@ alias gv="git log --graph --decorate --oneline"
 alias gch="git checkout"
 alias gcb="git checkout -b"
 
+alias e="emacsclient -nw"
+alias emacs="emacsclient -nw"
+
 alias h="history 25"
 alias j="jobs -l"
 alias l="ls -al"
