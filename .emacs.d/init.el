@@ -6,15 +6,6 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(use-package evil
-  :ensure t
-  :init
-  (setq evil-want-C-u-scroll t)
-  (setq evil-want-C-i-jump t)
-
-  :config
-  (evil-mode 1))
-
 (use-package which-key
   :ensure t
   :config
@@ -30,15 +21,16 @@
   :config
   (load-theme 'doom-tokyo-night t))
 
+(use-package eglot
+  :ensure t
+  :hook (python-mode . eglot-ensure)
+  :config
+  (add-to-list 'eglot-server-programs '(python-mode . ("ty" "server"))))
+
 ;; Move auto-generated Customize code to custom.el
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
     (load custom-file))
-
-(use-package dumb-jump
-  :ensure t
-  :config
-  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
 (menu-bar-mode -1)        ; Remove the menu bar (File Edit Options...)
 (tool-bar-mode -1)        ; Remove the tool bar (if using GUI)
