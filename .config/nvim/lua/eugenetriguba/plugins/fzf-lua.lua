@@ -24,6 +24,7 @@ require('fzf-lua').setup {
   },
   grep = {
     rg_opts = "--color=never --no-heading --with-filename --line-number --column --smart-case --hidden --glob '!.git/*'",
+    rg_grep = true,
   },
 }
 local fzf = require 'fzf-lua'
