@@ -27,6 +27,13 @@ map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Delete the current buffer
+vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = 'Delete current buffer' })
+-- Force delete the current buffer (discard changes)
+vim.keymap.set('n', '<leader>bD', '<cmd>bdelete!<cr>', { desc = 'Force delete current buffer' })
+-- Delete all buffers except the current one
+vim.keymap.set('n', '<leader>ba', ':%bd|e#<cr>', { desc = 'Delete all other buffers' })
+
 map('n', '<leader>rdt', function()
   local func_name = vim.fn.expand '<cword>'
   local output = vim.fn.systemlist('django-test --list ' .. func_name)
