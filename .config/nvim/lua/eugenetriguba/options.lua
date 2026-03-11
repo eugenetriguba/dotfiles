@@ -94,3 +94,6 @@ opt.inccommand = 'split'
 opt.spell = true
 opt.spelllang = { 'en_us' }
 opt.spellfile = vim.env.HOME .. '/.config/nvim/spell/en.utf-8.add'
+
+-- Enable project-local configuration
+vim.o.exrc = true
