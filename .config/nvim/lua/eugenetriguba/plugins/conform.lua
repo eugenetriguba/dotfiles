@@ -68,9 +68,9 @@ end, {
   desc = 'Re-enable autoformat-on-save',
 })
 
-vim.keymap.set('', '<leader>bf', function()
+vim.keymap.set('', '<leader>fb', function()
   require('conform').format { async = true, lsp_format = 'fallback' }
-end, { desc = '[B]uffer [F]ormat' })
+end, { desc = '[F]ormat [B]uffer' })
 
 vim.keymap.set('n', '<leader>tf', function()
   -- If autoformat is currently disabled for this buffer,
