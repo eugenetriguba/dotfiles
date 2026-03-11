@@ -85,10 +85,22 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+vim.api.nvim_create_autocmd('CursorHold', {
+  callback = function()
+    vim.diagnostic.open_float(nil, {
+      focus = false,
+      scope = 'cursor',
+      border = 'rounded',
+      source = 'if_many',
+      close_events = { 'CursorMoved', 'InsertEnter', 'BufLeave', 'WinLeave' },
+    })
+  end,
+})
+
 vim.diagnostic.config {
   severity_sort = true,
   float = { border = 'rounded', source = 'if_many' },
-  underline = { severity = vim.diagnostic.severity.ERROR },
+  underline = true,
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = '󰅚 ',
@@ -97,13 +109,7 @@ vim.diagnostic.config {
       [vim.diagnostic.severity.HINT] = '󰌶 ',
     },
   },
-  virtual_text = {
-    source = 'if_many',
-    spacing = 2,
-    format = function(diagnostic)
-      return diagnostic.message
-    end,
-  },
+  virtual_text = false,
 }
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
@@ -113,6 +119,7 @@ local servers = {
   clangd = {},
   gopls = {},
   ty = {},
+  yamlls = {},
   rust_analyzer = {},
   ts_ls = {},
   lua_ls = {
