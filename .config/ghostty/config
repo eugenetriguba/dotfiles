@@ -19,3 +19,38 @@ window-save-state = always
 copy-on-select = true
 link-previews = osc8
 notify-on-command-finish = unfocused
+
+################
+# KEY BINDINGS
+################
+
+# All keybindings use 'ctrl-a' as a 'prefix key'. This is similar
+# to tmux and ensures that the keybindings here don't conflict
+# with neovim.
+
+# New splits
+keybind = ctrl+a>v=new_split:right
+keybind = ctrl+a>s=new_split:down
+
+# Navigate splits
+keybind = ctrl+a>h=goto_split:left
+keybind = ctrl+a>l=goto_split:right
+keybind = ctrl+a>k=goto_split:up
+keybind = ctrl+a>j=goto_split:down
+
+# Resize splits
+keybind = ctrl+a>shift+h=resize_split:left,10
+keybind = ctrl+a>shift+l=resize_split:right,10
+keybind = ctrl+a>shift+k=resize_split:up,10
+keybind = ctrl+a>shift+j=resize_split:down,10
+
+# Close split / zoom
+keybind = ctrl+a>q=close_surface
+keybind = ctrl+a>z=toggle_split_zoom
+
+# Tabs
+keybind = ctrl+a>c=new_tab
+keybind = ctrl+a>n=next_tab
+keybind = ctrl+a>p=previous_tab
+keybind = ctrl+a>w=close_tab
+
