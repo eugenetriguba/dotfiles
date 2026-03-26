@@ -1,14 +1,5 @@
--- Enable folding.
-vim.g.vim_markdown_folding_disabled = 0
-
--- Fold heading in with the contents.
-vim.g.vim_markdown_folding_style_pythonic = 1
-
--- Don't use the shipped key bindings.
+vim.g.vim_markdown_folding_disabled = 1
 vim.g.vim_markdown_no_default_key_mappings = 1
-
--- Autoshrink TOCs.
-vim.g.vim_markdown_toc_autofit = 1
 
 -- Indentation for new lists. We don't insert bullets as it doesn't play
 -- nicely with `gq` formatting. It relies on a hack of treating bullets
@@ -30,11 +21,23 @@ vim.g.vim_markdown_strikethrough = 1
 
 vim.pack.add {
   {
-    name = 'markdown-preview.nvim',
-    src = 'https://github.com/iamcco/markdown-preview.nvim',
+    name = 'markview.nvim',
+    src = 'https://github.com/OXY2DEV/markview.nvim',
   },
   {
     name = 'vim-markdown',
     src = 'https://github.com/preservim/vim-markdown',
   },
 }
+
+require('markview').setup {
+  -- Disable automatic previews.
+  preview = { enable = false },
+}
+
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>tm',
+  '<CMD>Markview splitToggle<CR>',
+  { desc = '[T]oggle a split `markview` preview.' }
+)
