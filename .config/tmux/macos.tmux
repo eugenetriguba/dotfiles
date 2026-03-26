@@ -1,7 +1,7 @@
 # Related: [issue #67](https://github.com/tmux-plugins/tpm/issues/67)
 set-environment -g PATH "/opt/homebrew/bin:/bin:/usr/bin"
 
-set -g default-command "reattach-to-user-namespace -l /bin/zsh"
+set-option -g default-command "reattach-to-user-namespace -l $SHELL"
 
 # Prefix C-c copy buffer to system clipboard
 bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
