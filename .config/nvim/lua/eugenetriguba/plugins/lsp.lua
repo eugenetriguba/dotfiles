@@ -8,32 +8,27 @@ vim.pack.add {
     src = 'https://github.com/neovim/nvim-lspconfig',
   },
   {
-    name = 'mason.nvim',
-    src = 'https://github.com/williamboman/mason.nvim',
-  },
-  {
-    name = 'mason-lspconfig.nvim',
-    src = 'https://github.com/williamboman/mason-lspconfig.nvim',
-  },
-  {
-    name = 'mason-tool-installer.nvim',
-    src = 'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim',
-  },
-  {
     name = 'fidget.nvim',
     src = 'https://github.com/j-hui/fidget.nvim',
   },
 }
 
--- Lazydev for Lua development
+require('fidget').setup {}
 require('lazydev').setup {
+  enabled = function(root_dir)
+    local lazydev_enabled = function()
+      return vim.g.lazydev_enabled == nil and true or vim.g.lazydev_enabled
+    end
+    local is_lua_neovim_config_file = function()
+      return vim.bo.filetype == 'lua' and vim.fn.expand('%:p'):find(vim.fn.stdpath 'config', 1, true) ~= nil
+    end
+    return lazydev_enabled() or is_lua_neovim_config_file()
+  end,
   library = {
     { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
   },
 }
--- Fidget for LSP progress
-require('fidget').setup {}
-require('mason').setup()
+
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
   callback = function(event)
@@ -43,8 +38,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 
     local fzf = require 'fzf-lua'
+    fzf.register_ui_select()
     map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
-    map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+    map('gra', fzf.lsp_code_actions, '[G]oto Code [A]ction', { 'n', 'x' })
     map('grr', fzf.lsp_references, '[G]oto [R]eferences')
     map('gri', fzf.lsp_implementations, '[G]oto [I]mplementation')
     map('grd', fzf.lsp_definitions, '[G]oto [D]efinition')
@@ -112,93 +108,97 @@ vim.diagnostic.config {
   virtual_text = false,
 }
 
-local capabilities = require('blink.cmp').get_lsp_capabilities()
-local servers = {
-  prettierd = {},
-  ansiblels = {},
-  clangd = {},
-  gopls = {},
-  ty = {},
-  yamlls = {},
-  rust_analyzer = {},
-  ts_ls = {},
-  lua_ls = {
-    settings = {
-      Lua = {
-        completion = {
-          callSnippet = 'Replace',
-        },
-      },
-    },
-  },
-  stylua = {},
-  mesonlsp = {},
-  terraformls = {},
-  bashls = {},
-  jdtls = {
-    settings = {
-      java = {
-        configuration = {
-          updateBuildConfiguration = 'interactive',
-          refreshBundles = true,
-        },
-        completion = {
-          favoriteStaticMembers = {
-            'org.hamcrest.MatcherAssert.assertThat',
-            'org.hamcrest.Matchers.*',
-            'org.hamcrest.CoreMatchers.*',
-            'org.junit.jupiter.api.Assertions.*',
-            'java.util.Objects.requireNonNull',
-            'java.util.Objects.requireNonNullElse',
-          },
-        },
-        contentProvider = { preferred = 'fernflower' },
-        eclipse = {
-          downloadSources = true,
-        },
-        implementationsCodeLens = {
-          enabled = true,
-        },
-        inlayHints = {
-          parameterNames = {
-            enabled = 'all',
-          },
-        },
-        maven = {
-          downloadSources = true,
-        },
-        referencesCodeLens = {
-          enabled = true,
-        },
-        references = {
-          includeDecompiledSources = true,
-        },
-        saveActions = {
-          organizeImports = true,
-        },
-        signatureHelp = { enabled = true },
-        sources = {
-          organizeImports = {
-            starThreshold = 9999,
-            staticStarThreshold = 9999,
-          },
-        },
-      },
-    },
-  },
-}
+vim.lsp.config('*', {
+  capabilities = require('blink.cmp').get_lsp_capabilities(),
+})
 
-local ensure_installed = vim.tbl_keys(servers or {})
-require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-require('mason-lspconfig').setup {
-  ensure_installed = {},
-  automatic_installation = false,
-  automatic_enable = true,
-  handlers = {
-    function(server_name)
-      local server = servers[server_name] or {}
-      server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-      require('lspconfig')[server_name].setup(server)
-    end,
+vim.lsp.config('harper_ls', {
+  filetypes = { 'markdown', 'gitcommit', 'asciidoc' },
+  settings = {
+    ['harper-ls'] = {
+      diagnosticSeverity = 'warning',
+      linters = {
+        SpellCheck = false,
+      },
+    },
   },
+})
+
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      codeLens = { enable = true },
+      hint = { enable = true, semicolon = 'Disable' },
+      completion = {
+        callSnippet = 'Replace',
+      },
+    },
+  },
+})
+
+vim.lsp.config('jdtls', {
+  settings = {
+    java = {
+      configuration = {
+        updateBuildConfiguration = 'interactive',
+        refreshBundles = true,
+      },
+      completion = {
+        favoriteStaticMembers = {
+          'org.hamcrest.MatcherAssert.assertThat',
+          'org.hamcrest.Matchers.*',
+          'org.hamcrest.CoreMatchers.*',
+          'org.junit.jupiter.api.Assertions.*',
+          'java.util.Objects.requireNonNull',
+          'java.util.Objects.requireNonNullElse',
+        },
+      },
+      contentProvider = { preferred = 'fernflower' },
+      eclipse = {
+        downloadSources = true,
+      },
+      implementationsCodeLens = {
+        enabled = true,
+      },
+      inlayHints = {
+        parameterNames = {
+          enabled = 'all',
+        },
+      },
+      maven = {
+        downloadSources = true,
+      },
+      referencesCodeLens = {
+        enabled = true,
+      },
+      references = {
+        includeDecompiledSources = true,
+      },
+      saveActions = {
+        organizeImports = true,
+      },
+      signatureHelp = { enabled = true },
+      sources = {
+        organizeImports = {
+          starThreshold = 9999,
+          staticStarThreshold = 9999,
+        },
+      },
+    },
+  },
+})
+
+vim.lsp.enable {
+  'harper_ls',
+  'lua_ls',
+  'ansiblels',
+  'clangd',
+  'gopls',
+  'ty',
+  'yamlls',
+  'rust_analyzer',
+  'ts_ls',
+  'terraformls',
+  'bashls',
+  'jdtls',
 }

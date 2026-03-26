@@ -10,6 +10,7 @@ opt_local.breakindent = true
 
 opt_local.spell = true
 opt_local.spelllang = 'en_us'
+opt_local.spellcapcheck = ''
 
 opt_local.expandtab = true
 opt_local.tabstop = 2
@@ -17,3 +18,9 @@ opt_local.shiftwidth = 2
 
 opt_local.list = true
 opt_local.listchars = 'tab:»·,trail:·'
+
+opt_local.number = false
+opt_local.relativenumber = false
+
+-- Use macOS dictionary program as keyword look up
+opt_local.keywordprg = 'open-dict'

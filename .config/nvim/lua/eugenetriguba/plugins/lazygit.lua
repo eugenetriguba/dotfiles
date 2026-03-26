@@ -8,4 +8,5 @@ vim.pack.add {
     src = 'https://github.com/nvim-lua/plenary.nvim',
   },
 }
+
 vim.keymap.set('n', '<leader>tg', '<cmd>LazyGit<cr>', { desc = '[T]oggle Lazy[G]it' })

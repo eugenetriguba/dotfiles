@@ -1,5 +1,19 @@
 -- Treesitter adds understanding of the source code text (e.g. fields, methods,
 -- classes)
+
+vim.api.nvim_create_autocmd('PackChanged', {
+  callback = function(event)
+    local name, kind = event.data.spec.name, event.data.kind
+    if name == 'nvim-treesitter' and (kind == 'update' or kind == 'install') then
+      vim.schedule(function()
+        -- If nvim-treesitter was updated, run ':TSUpdate' to
+        -- ensure the installed parsers are also updated.
+        vim.cmd 'TSUpdate all'
+      end)
+    end
+  end,
+})
+
 vim.pack.add {
   {
     name = 'nvim-treesitter',
@@ -30,16 +44,3 @@ vim.api.nvim_create_autocmd('FileType', {
 require('treesitter-context').setup {
   multiline_threshold = 10,
 }
-
-vim.api.nvim_create_autocmd('PackChanged', {
-  callback = function(event)
-    local name, kind = event.data.spec.name, event.data.kind
-    if name == 'nvim-treesitter' and (kind == 'update' or kind == 'install') then
-      vim.schedule(function()
-        -- If nvim-treesitter was updated, run ':TSUpdate' to
-        -- ensure the installed parsers are also updated.
-        vim.cmd 'TSUpdate all'
-      end)
-    end
-  end,
-})

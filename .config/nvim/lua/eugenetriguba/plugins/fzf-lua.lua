@@ -8,6 +8,7 @@ vim.pack.add {
     src = 'https://github.com/ibhagwan/fzf-lua',
   },
 }
+
 require('fzf-lua').setup {
   winopts = {
     preview = {
@@ -27,6 +28,7 @@ require('fzf-lua').setup {
     rg_grep = true,
   },
 }
+
 local fzf = require 'fzf-lua'
 vim.keymap.set('n', '<leader>fh', fzf.helptags, { desc = '[F]ind [H]elp' })
 vim.keymap.set('n', '<leader>fk', fzf.keymaps, { desc = '[F]ind [K]eymaps' })

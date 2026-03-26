@@ -23,24 +23,26 @@ require('conform').setup {
   end,
   formatters_by_ft = {
     c = { 'clang-format' },
+    cpp = { 'clang-format' },
     lua = { 'stylua' },
     go = { 'gofmt' },
     python = { 'black', 'isort' },
     rust = { 'rustfmt' },
     sh = { 'shfmt' },
-    md = { 'prettierd', 'prettier', stop_after_first = true },
-    yaml = { 'prettierd', 'prettier', stop_after_first = true },
-    json = { 'prettierd', 'prettier', stop_after_first = true },
-    javascript = { 'prettierd', 'prettier', stop_after_first = true },
-    typescript = { 'prettierd', 'prettier', stop_after_first = true },
-    javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-    typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-    css = { 'prettierd', 'prettier', stop_after_first = true },
-    htmldjango = { 'prettierd', 'prettier', stop_after_first = true },
-    html = { 'prettierd', 'prettier', stop_after_first = true },
     tf = { 'terraform_fmt' },
     nix = { 'nixfmt' },
     java = { 'google-java-format' },
+    md = { 'prettierd' },
+    toml = { 'taplo' },
+    yaml = { 'prettierd' },
+    json = { 'prettierd' },
+    javascript = { 'prettierd' },
+    typescript = { 'prettierd' },
+    javascriptreact = { 'prettierd' },
+    typescriptreact = { 'prettierd' },
+    css = { 'prettierd' },
+    htmldjango = { 'prettierd' },
+    html = { 'prettierd' },
   },
   formatters = {
     isort = {
@@ -84,9 +86,9 @@ vim.keymap.set('n', '<leader>tf', function()
   end
 end, { desc = 'Toggle autoformat for current buffer' })
 
+-- If autoformat is currently disabled globally,
+-- then enable it globally, otherwise disable it globally
 vim.keymap.set('n', '<leader>tF', function()
-  -- If autoformat is currently disabled globally,
-  -- then enable it globally, otherwise disable it globally
   if vim.g.disable_autoformat then
     vim.cmd 'FormatEnable'
     vim.notify 'Enabled autoformat globally'
