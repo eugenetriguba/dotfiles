@@ -14,20 +14,17 @@
 
   (if (not buffer-file-name)
       (message "Not visiting a file.")
-    (let* ((git-remote-url-cmd "git config --get remote.origin.url")
-           (remote-url (string-trim
-                        (shell-command-to-string git-remote-url-cmd)))
-           (git-head-sha-cmd "git rev-parse HEAD")
-           (head-sha (string-trim (shell-command-to-string git-head-sha-cmd)))
+    (let* ((remote-url (vc-git-repository-url buffer-file-name "origin"))
+	   (head-sha (vc-git-working-revision buffer-file-name))
            (relative-file-path (file-relative-name buffer-file-name
-                                (vc-git-root buffer-file-name)))
+						   (vc-git-root buffer-file-name)))
            (line-num (line-number-at-pos)))
 
       (if (et--is-supported-provider-p remote-url)
-       (progn
-                (kill-new (et--generate-remote-git-url remote-url head-sha relative-file-path line-num))
-                (message "Copied remote git URL"))
-       (message (format "%s is not a supported git hosting provider." remote-url))))))
+	  (progn
+            (kill-new (et--generate-remote-git-url remote-url head-sha relative-file-path line-num))
+            (message "Copied remote git URL"))
+	(message (format "%s is not a supported git hosting provider." remote-url))))))
 
 (defun et--is-supported-provider-p (url)
   "Check whether url is a supported git hosting provider for URL generation."
@@ -57,10 +54,10 @@
 
 (defun et--gh-generate-remote-git-url (remote-url head-sha relative-file-path line-num)
   (format "https://github.com/%s/blob/%s/%s#L%d"
-    (et--extract-repo-path "https://github.com" remote-url)
-    head-sha
-    relative-file-path
-    line-num))
+	  (et--extract-repo-path "https://github.com" remote-url)
+	  head-sha
+	  relative-file-path
+	  line-num))
 
 (defun et--extract-repo-path (base-url remote-url)
   (if (et--git-ssh-url-p remote-url)
@@ -75,9 +72,10 @@
 
 (defun et--sh-generate-remote-git-url (remote-url head-sha relative-file-path line-num)
   (format "https://git.sr.ht/%s/tree/%s/item/%s#L%d"
-    (et--extract-repo-path "https://git.sr.ht" remote-url)
-    head-sha
-    relative-file-path
-    line-num))
+	  (et--extract-repo-path "https://git.sr.ht" remote-url)
+	  head-sha
+	  relative-file-path
+	  line-num))
 
 (provide 'et-vc)
+
