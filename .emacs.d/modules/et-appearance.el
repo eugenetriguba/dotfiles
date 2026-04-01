@@ -20,8 +20,8 @@
 
 ;; Setup our monospace font
 (set-face-attribute 'default nil
-		    :font (symbol-value 'et/monospace-font)
-		    :height (symbol-value 'et/monospace-font-size))
+		    :font (symbol-value 'et-monospace-font)
+		    :height (symbol-value 'et-monospace-font-size))
 
 ;; Use line numbers globally
 ;; (setq display-line-numbers-type 'relative)
