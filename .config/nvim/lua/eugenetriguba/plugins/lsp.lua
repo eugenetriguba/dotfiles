@@ -201,4 +201,5 @@ vim.lsp.enable {
   'terraformls',
   'bashls',
   'jdtls',
+  'kotlin_lsp',
 }

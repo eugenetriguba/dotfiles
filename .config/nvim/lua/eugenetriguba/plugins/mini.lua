@@ -39,6 +39,8 @@ miniclue.setup {
     -- `z` key
     { mode = 'n', keys = 'z' },
     { mode = 'x', keys = 'z' },
+    -- `s` surround keys
+    { mode = 'n', keys = 's' },
   },
   clues = {
     -- Enhance this by adding descriptions for <Leader> mapping groups
