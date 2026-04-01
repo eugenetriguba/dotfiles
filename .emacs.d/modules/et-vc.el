@@ -27,7 +27,7 @@
        (progn
                 (kill-new (et--generate-remote-git-url remote-url head-sha relative-file-path line-num))
                 (message "Copied remote git URL"))
-       (message (format "%s is not a github.com url." remote-url))))))
+       (message (format "%s is not a supported git hosting provider." remote-url))))))
 
 (defun et--is-supported-provider-p (url)
   "Check whether url is a supported git hosting provider for URL generation."
