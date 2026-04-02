@@ -32,7 +32,7 @@ vim.pack.add {
 
 require('markview').setup {
   -- Disable automatic previews.
-  preview = { enable = false },
+  preview = { enable = false, icon_provider = 'mini' },
 }
 
 vim.api.nvim_set_keymap(

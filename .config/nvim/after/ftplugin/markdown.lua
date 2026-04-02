@@ -10,6 +10,7 @@ opt_local.breakindent = true
 
 opt_local.spell = true
 opt_local.spelllang = 'en_us'
+opt_local.spellfile = vim.env.HOME .. '/.config/nvim/spell/en.utf-8.add'
 opt_local.spellcapcheck = ''
 opt_local.spellfile = vim.env.HOME .. '/.config/nvim/spell/en.utf-8.add'
 
