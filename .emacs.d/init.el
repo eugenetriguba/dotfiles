@@ -16,7 +16,6 @@
 ;;
 ;; Therefore, this entrypoint file:
 ;; * Sets up the Emacs load path to include the modules directory.
-;; * Defines core variables and functions throughout the modules.
 ;; * Loads each module in the necessary order.
 ;;
 ;;; Code:
