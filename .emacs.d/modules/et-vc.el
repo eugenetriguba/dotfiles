@@ -1,6 +1,8 @@
 ;;; -*- Lexical-binding:t -*-
 (require 'vc-git)
 
+(use-package magit)
+
 (global-set-key (kbd "C-c gu")
                 'et-generate-remote-git-url)
 
@@ -78,4 +80,3 @@
 	  line-num))
 
 (provide 'et-vc)
-
