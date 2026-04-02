@@ -38,7 +38,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 
     local fzf = require 'fzf-lua'
-    fzf.register_ui_select()
+    fzf.register_ui_select({}, true)
     map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
     map('gra', fzf.lsp_code_actions, '[G]oto Code [A]ction', { 'n', 'x' })
     map('grr', fzf.lsp_references, '[G]oto [R]eferences')
