@@ -4,7 +4,7 @@
 ;;
 ;;; Code:
 
-(defun et-utils-is-desktop-p ()
+(defun et-is-desktop-p ()
   "Check if the current system is my desktop system."
   (string-match-p "desktop" (system-name)))
 

@@ -1,4 +1,4 @@
-;;; et-vc --- Version control configuration -*- lexical-binding:t -*-
+;;; et-vc.el --- Version control configuration -*- lexical-binding:t -*-
 ;;
 ;;; Commentary:
 ;;
@@ -8,9 +8,9 @@
 (use-package magit)
 
 (global-set-key (kbd "C-c gu")
-                'et-vc-generate-remote-git-url)
+                'et-generate-remote-git-url)
 
-(defun et-vc-generate-remote-git-url ()
+(defun et-generate-remote-git-url ()
   "Generate a remote URL for the current buffer file and line number.
 
 * The remote URL can be HTTPS or SSH.
@@ -31,17 +31,17 @@ would be added to the kill ring."
 						   (vc-git-root buffer-file-name)))
            (line-num (line-number-at-pos)))
 
-      (if (et-vc--is-supported-provider-p remote-url)
+      (if (et--is-supported-provider-p remote-url)
 	  (progn
-            (kill-new (et-vc--generate-remote-git-url remote-url head-sha relative-file-path line-num))
+            (kill-new (et--generate-remote-git-url remote-url head-sha relative-file-path line-num))
             (message "Copied remote git URL"))
 	(message (format "%s is not a supported git hosting provider." remote-url))))))
 
-(defun et-vc--is-supported-provider-p (url)
+(defun et--is-supported-provider-p (url)
   "Check whether URL is a supported git hosting provider for URL generation."
-  (not (null (et-vc--get-git-hosting-provider url))))
+  (not (null (et--get-git-hosting-provider url))))
 
-(defun et-vc--get-git-hosting-provider (url)
+(defun et--get-git-hosting-provider (url)
   "Get the git hosting provider for the given URL.
 
 The supported providers are github and sourcehut.  If the URL
@@ -50,52 +50,52 @@ corresponds to an unsupported provider, null is returned."
    ((string-match-p "github\\.com" url) 'github)
    ((string-match-p "git\\.sr\\.ht" url) 'sourcehut)))
 
-(defun et-vc--generate-remote-git-url (remote-url head-sha relative-file-path line-num)
-  (let ((provider (et-vc--get-git-hosting-provider remote-url)))
+(defun et--generate-remote-git-url (remote-url head-sha relative-file-path line-num)
+  (let ((provider (et--get-git-hosting-provider remote-url)))
     (cond
      ((eq 'github provider)
-      (et-vc--gh-generate-remote-git-url remote-url head-sha relative-file-path line-num))
+      (et--gh-generate-remote-git-url remote-url head-sha relative-file-path line-num))
      ((eq 'sourcehut provider)
-      (et-vc--sh-generate-remote-git-url remote-url head-sha relative-file-path line-num)))))
+      (et--sh-generate-remote-git-url remote-url head-sha relative-file-path line-num)))))
 
-(defun et-vc--gh-generate-remote-git-url (remote-url head-sha relative-file-path line-num)
+(defun et--gh-generate-remote-git-url (remote-url head-sha relative-file-path line-num)
   (format "https://github.com/%s/blob/%s/%s#L%d"
-	  (et-vc--extract-repo-path "https://github.com" remote-url)
+	  (et--extract-repo-path "https://github.com" remote-url)
 	  head-sha
 	  relative-file-path
 	  line-num))
 
-(defun et-vc--sh-generate-remote-git-url (remote-url head-sha relative-file-path line-num)
+(defun et--sh-generate-remote-git-url (remote-url head-sha relative-file-path line-num)
   (format "https://git.sr.ht/%s/tree/%s/item/%s#L%d"
-	  (et-vc--extract-repo-path "https://git.sr.ht" remote-url)
+	  (et--extract-repo-path "https://git.sr.ht" remote-url)
 	  head-sha
 	  relative-file-path
 	  line-num))
 
-(defun et-vc--extract-repo-path (base-url remote-url)
+(defun et--extract-repo-path (base-url remote-url)
   "Extract the repository path from the REMOTE-URL.
 
 BASE-URL is used to determine where the repository part of the
 REMOTE-URL starts if the REMOTE-URL is a http URL.
 
 Example:
-  (et-vc--extract-repo-path
+  (et--extract-repo-path
     \"https://github.com\"
     \"https://github.com/user/repo\")
   => \"user/repo\"
 
-  (et-vc--extract-repo-path
+  (et--extract-repo-path
     \"https://git.sr.ht\"
     \"git@git.sr.ht:~eugenetriguba/repo\")
   => \"~eugenetriguba/repo\""
-  (if (et-vc--git-ssh-url-p remote-url)
+  (if (et--git-ssh-url-p remote-url)
       (substring remote-url (+ 1 (string-match ":" remote-url)))
     (replace-regexp-in-string
      (format "%s/\\(.*?\\)\\(.git\\)?$" base-url)
      "\\1"
      remote-url)))
 
-(defun et-vc--git-ssh-url-p (url)
+(defun et--git-ssh-url-p (url)
   "Check whether URL is a SSH-based Git origin URL."
   (string-prefix-p "git@" url))
 

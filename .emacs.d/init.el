@@ -5,10 +5,8 @@
 ;;
 ;; The majority of the configuration lives within the modules/
 ;; directory.  Each module is intended to be a self-contained unit for
-;; some aspect of my usage of Emacs.  Each module name is prefixed
-;; with et- to namespace them.  Furthermore, all public definitions
-;; *within* a module are prefixed by the module name
-;; e.g. et-vc-generate-remote-git-url.
+;; some aspect of my usage of Emacs.  Each module name and definitions
+;; within a module is prefixed with et- to namespace them.
 ;;
 ;; Because the configuration is generally in these module files, the
 ;; primary role of init.el is to bootstrap the loading of these

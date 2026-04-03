@@ -7,7 +7,7 @@
 
 (defvar et-monospace-font "Hack Nerd Font Mono"
   "The font used by default and for any monospaced font usage.")
-(defvar et-monospace-font-size (if (et-utils-is-desktop-p) 192 160))
+(defvar et-monospace-font-size (if (et-is-desktop-p) 192 160))
 (set-face-attribute 'default nil
 		    :font (symbol-value 'et-monospace-font)
 		    :height (symbol-value 'et-monospace-font-size))
