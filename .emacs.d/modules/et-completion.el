@@ -1,4 +1,8 @@
-;; -*- lexical-binding: t; -*-
+;;; et-completion.el --- Enhance the Emacs completion behavior -*- lexical-binding: t; -*-
+;;
+;;; Commentary:
+;;
+;;; Code:
 
 ;; Add a vertical completion UI
 (use-package vertico
@@ -27,3 +31,4 @@
   (marginalia-mode))
 
 (provide 'et-completion)
+;;; et-completion.el ends here
