@@ -20,6 +20,8 @@
 (add-to-list 'load-path "~/.emacs.d/vendor")
 (require 'find-file-in-project)
 (setq ffip-use-rust-fd t)
+(global-set-key (kbd "C-c p f") 'find-file-in-project)
+(global-set-key (kbd "C-c p s") 'find-file-in-project-by-selected)
 
 (add-to-list 'load-path "~/.emacs.d/modules")
 (require 'et-package)
