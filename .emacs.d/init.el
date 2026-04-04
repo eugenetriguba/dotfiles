@@ -27,7 +27,7 @@
 (require 'et-package)
 (require 'et-appearance)
 (require 'et-vc)
-(require 'et-minibuffer-completion)
+(require 'et-completion)
 (require 'et-navigation)
 (require 'et-format)
 (require 'et-lsp)
