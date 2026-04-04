@@ -17,8 +17,11 @@
 ;; * Loads each module in the necessary order.
 ;;
 ;;; Code:
-(add-to-list 'load-path '"~/.emacs.d/modules")
+(add-to-list 'load-path "~/.emacs.d/vendor")
+(require 'find-file-in-project)
+(setq ffip-use-rust-fd t)
 
+(add-to-list 'load-path "~/.emacs.d/modules")
 (require 'et-package)
 (require 'et-appearance)
 (require 'et-vc)
