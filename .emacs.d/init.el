@@ -47,11 +47,9 @@
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
 
-(use-package slime
+(use-package sly
   :init
-  (setq inferior-lisp-program "sbcl")
-  :config
-  (slime-setup '(slime-fancy slime-quicklisp slime-asdf)))
+  (setq inferior-lisp-program "sbcl"))
 
 (setq custom-file (expand-file-name "custom-vars.el" user-emacs-directory))
 (when (file-exists-p custom-file)
