@@ -1,11 +1,11 @@
 ;;; et-lsp.el --- Setup LSP servers for necessary languages -*- lexical-binding: t; -*-
-;;
 ;;; Commentary:
-;;
 ;;; Code:
 
 (use-package eglot
-  :hook (python-mode . eglot-ensure)
+  :defer t
+  :hook ((python-mode . eglot-ensure)
+	 (go-mode . eglot-ensure))
   :config
   (add-to-list 'eglot-server-programs '(python-mode . ("ty" "server"))))
 
