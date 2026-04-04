@@ -18,9 +18,7 @@ as the file summary."
 	(get-current-file-name (lambda () (file-name-sans-extension (file-name-nondirectory buffer-file-name))))
 	(get-module-template (lambda (module-name summary)
 			       (format ";;; %s.el --- %s -*- lexical-binding: t; -*-
-;;
 ;;; Commentary:
-;;
 ;;; Code:
 
 
