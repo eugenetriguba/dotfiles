@@ -4,17 +4,17 @@
 ;; init.el serves as the entrypoint for this Emacs configuration.
 ;;
 ;; The majority of the configuration lives within the lisp/ directory.
-;; Each lisp file is intended to be a self-contained unit for some aspect
+;; Each Lisp file is intended to be a self-contained unit for some aspect
 ;; of my usage of Emacs.  Each file name and definitions within a file
 ;; are prefixed with et- to namespace them.
 ;;
-;; Because the configuration is generally in these self-contained lisp
+;; Because the configuration is generally in these self-contained Lisp
 ;; files, the primary role of init.el is to bootstrap the loading of these
 ;; files.
 ;;
 ;; Therefore, this entrypoint file:
-;; * Sets up the Emacs load path to include the lisp directory.
-;; * Loads each lisp file in the necessary order.
+;; * Sets up the Emacs load path to include the Lisp directory.
+;; * Loads each Lisp file in the necessary order.
 ;;
 ;;; Code:
 (add-to-list 'load-path "~/.emacs.d/lisp")
