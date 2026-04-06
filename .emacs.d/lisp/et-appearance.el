@@ -37,6 +37,7 @@
 ;; modes where they don't make as much sense.
 (global-display-line-numbers-mode 1)
 (dolist (mode '(text-mode-hook
+		man-mode-hook
 		org-mode-hook
 		term-mode-hook
 		eshell-mode-hook
