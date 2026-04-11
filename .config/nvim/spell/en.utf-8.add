@@ -44,3 +44,5 @@ env
 fstab
 Tailscale
 tailscale
+Lua
+Neovim
