@@ -1,0 +1,8 @@
+image: alpine/edge
+secrets:
+  - c1949d88-db32-4fa8-a7bb-2f33259c270b
+tasks:
+  - push-to-github: |
+      cd dotfiles
+      git config --global credential.helper store
+      git push --mirror "https://github.com/eugenetriguba/dotfiles"
