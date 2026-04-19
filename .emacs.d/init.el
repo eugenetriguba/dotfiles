@@ -20,6 +20,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (require 'et-package)
 (require 'et-appearance)
+(require 'et-vi)
 (require 'et-vc)
 (require 'et-completion)
 (require 'et-format)
