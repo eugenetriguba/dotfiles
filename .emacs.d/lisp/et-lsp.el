@@ -3,9 +3,10 @@
 ;;; Code:
 
 (use-package eglot
-  :defer t
   :hook ((python-mode . eglot-ensure)
 	 (go-mode . eglot-ensure))
+  :init
+  (setq eglot-prefer-plaintext t)
   :config
   (add-to-list 'eglot-server-programs '(python-mode . ("ty" "server"))))
 

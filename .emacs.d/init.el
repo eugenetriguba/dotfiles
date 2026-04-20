@@ -19,40 +19,16 @@
 ;;; Code:
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (require 'et-package)
+(require 'et-tidy)
 (require 'et-appearance)
 (require 'et-vi)
+(require 'et-keys)
 (require 'et-vc)
 (require 'et-completion)
 (require 'et-format)
 (require 'et-lsp)
-
-;; Misc. grab bag items that aren't formally organized yet.
-(setq custom-file (expand-file-name "custom-vars.el" user-emacs-directory))
-(when (file-exists-p custom-file)
-    (load custom-file))
-
-(setq messages-log-max t)
-(setq next-line-add-newlines t)
-
-(use-package project)
-
-(use-package which-key
-  :config
-  (which-key-mode 1))
-
-(use-package surround
-  :bind-keymap ("M-'" . surround-keymap))
-
-(use-package treesit-auto
-  :custom
-  (treesit-auto-install 'prompt)
-  :config
-  (treesit-auto-add-to-auto-mode-alist 'all)
-  (global-treesit-auto-mode))
-
-(use-package sly
-  :init
-  (setq inferior-lisp-program "sbcl"))
+(require 'et-lang)
+(require 'et-md)
 
 (provide 'init)
 ;;; init.el ends here

@@ -8,5 +8,9 @@
 
 (setq-default flycheck-emacs-lisp-load-path 'inherit)
 
+(use-package apheleia
+  :config
+  (apheleia-global-mode +1))
+
 (provide 'et-format)
 ;;; et-format.el ends here

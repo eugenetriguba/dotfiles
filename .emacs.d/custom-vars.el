@@ -6,8 +6,8 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    '(apheleia corfu doom-modeline embark-consult evil-collection flycheck
-	      magit marginalia nord-theme orderless sly surround
-	      treesit-auto vertico))
+	      magit marginalia markdown-mode no-littering nord-theme
+	      orderless sly surround treesit-auto vertico))
  '(safe-local-variable-values
    '((eval remove-hook 'flymake-diagnostic-functions
 	   #'elisp-flymake-checkdoc t)

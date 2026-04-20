@@ -31,5 +31,13 @@ as the file summary."
 	(insert (funcall get-module-template (funcall get-current-file-name) summary))
 	(funcall move-to-center-of-code-section)))))
 
+(defun open-init-file ()
+  "Open the Emacs init file."
+  (interactive)
+  (find-file user-init-file)
+  (cd (file-name-directory user-init-file)))
+
+(global-set-key (kbd "C-c i") 'open-init-file)
+
 (provide 'et-utils)
 ;;; et-utils.el ends here

@@ -1,10 +1,9 @@
 ;;; et-vc.el --- Version control configuration -*- lexical-binding:t -*-
-;;
 ;;; Commentary:
-;;
 ;;; Code:
 (require 'vc-git)
 
+(use-package project)
 (use-package magit)
 
 (global-set-key (kbd "C-c gu")

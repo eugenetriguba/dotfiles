@@ -13,7 +13,6 @@
 
 ;; Adjust completion search behavior
 (use-package orderless
-  :ensure t
   :custom
   (completion-styles '(orderless basic))
   (completion-category-overrides '((file (styles partial-completion))))
@@ -30,6 +29,7 @@
   :init
   (marginalia-mode))
 
+;; Add completion at point
 (use-package corfu
   :custom
   (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
@@ -42,9 +42,8 @@
   (corfu-popupinfo-max-height 15)
   (corfu-auto t)
   (corfu-auto-delay 0.2)
-  (corfu-auto-trigger ".")
+  (corfu-auto-prefix 2)    ;; trigger after 2 chars
   (corfu-quit-no-match 'separator)
-
   :init
   (global-corfu-mode)
   (corfu-history-mode)
@@ -78,6 +77,25 @@
   ;; commands are hidden, since they are not used via M-x. This setting is
   ;; useful beyond Corfu.
   (read-extended-command-predicate #'command-completion-default-include-p))
+
+(use-package embark
+  :bind (("C-."   . embark-act)
+         ("C-;"   . embark-dwim)
+         ("C-h B" . embark-bindings))
+  :init
+  (setq prefix-help-command #'embark-prefix-help-command))
+
+(use-package embark-consult
+  :hook (embark-collect-mode . consult-preview-at-point-mode))
+
+(use-package consult
+  :bind (("C-x b"   . consult-buffer)
+         ("M-y"     . consult-yank-pop)
+         ("M-g i"   . consult-imenu)
+         ("M-s l"   . consult-line)
+         ("M-s r"   . consult-ripgrep)
+         ("M-s f"   . consult-fd))
+  :hook (completion-list-mode . consult-preview-at-point-mode))
 
 (provide 'et-completion)
 ;;; et-completion.el ends here

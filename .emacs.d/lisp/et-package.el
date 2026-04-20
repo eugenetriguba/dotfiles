@@ -1,7 +1,5 @@
 ;;; et-package.el --- Bootstrap Emacs package management and use-package -*- lexical-binding: t; -*-
-;;
 ;;; Commentary:
-;;
 ;;; Code:
 
 ;; First, we want to setup package.el for installing packages.
