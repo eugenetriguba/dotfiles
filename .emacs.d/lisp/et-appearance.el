@@ -20,6 +20,15 @@
 ;; keybindings with evil mode.
 (setq display-line-numbers-type 'relative)
 
+;; Set the emacs frame title to the full file path.
+;;
+;; Source - https://stackoverflow.com/a/3669681
+;; Posted by Jérôme Radix, modified by community. See post 'Timeline' for change history
+;; Retrieved 2026-04-25, License - CC BY-SA 3.0
+(setq frame-title-format
+      (list (format "%s %%S: %%j " (system-name))
+            '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
+
 (use-package nord-theme
   :config
   (load-theme 'nord t))
