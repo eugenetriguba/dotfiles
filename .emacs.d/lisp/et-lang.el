@@ -13,5 +13,13 @@
   :init
   (setq inferior-lisp-program "sbcl"))
 
+(use-package geiser)
+(use-package geiser-guile)
+
+(defun geiser-save ()
+  "Save the geiser REPL session."
+  (interactive)
+  (geiser-repl--write-input-ring))
+
 (provide 'et-lang)
 ;;; et-lang.el ends here
