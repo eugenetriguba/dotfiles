@@ -29,6 +29,7 @@
 (require 'et-lsp)
 (require 'et-lang)
 (require 'et-md)
+(require 'et-org)
 
 (provide 'init)
 ;;; init.el ends here
