@@ -20,6 +20,8 @@
 ;; keybindings with evil mode.
 (setq display-line-numbers-type 'relative)
 
+(setq column-number-mode t)
+
 ;; Set the emacs frame title to the full file path.
 ;;
 ;; Source - https://stackoverflow.com/a/3669681
@@ -29,13 +31,25 @@
       (list (format "%s %%S: %%j " (system-name))
             '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
-(use-package nord-theme
-  :config
-  (load-theme 'nord t))
+(use-package nerd-icons
+  :ensure t)
 
-(use-package nerd-icons)
 (use-package doom-modeline
-  :init (doom-modeline-mode 1))
+  :ensure t
+  :init
+  (doom-modeline-mode 1))
+
+(use-package doom-themes
+  :ensure t
+  :custom
+  (doom-themes-enable-bold t)
+  (doom-themes-enable-italic nil)
+  :config
+  (load-theme 'doom-nord t))
+  ;; Enable flashing mode-line on errors
+  ;(doom-themes-visual-bell-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  ;(doom-themes-org-config))
 
 (provide 'et-appearance)
 ;;; et-appearance.el ends here
