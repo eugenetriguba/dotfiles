@@ -29,8 +29,6 @@
   (package-install 'use-package))
 
 (require 'use-package)
-;; Always ensure anything used via use-package is installed.
-(setq use-package-always-ensure t)
 
 (provide 'et-package)
 ;;; et-package.el ends here

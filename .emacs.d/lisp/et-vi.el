@@ -3,6 +3,7 @@
 ;;; Code:
 
 (use-package evil
+  :ensure t
   :init
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
@@ -11,14 +12,17 @@
   (evil-mode 1))
 
 (use-package evil-collection
+  :ensure t
   :config
   (evil-collection-init))
 
 (use-package evil-commentary
+  :ensure t
   :config
   (evil-commentary-mode))
 
 (use-package evil-surround
+  :ensure t
   :config
   (global-evil-surround-mode 1))
 

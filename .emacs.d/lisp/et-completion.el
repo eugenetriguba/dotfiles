@@ -1,11 +1,10 @@
 ;;; et-completion.el --- Enhance the Emacs completion behavior -*- lexical-binding: t; -*-
-;;
 ;;; Commentary:
-;;
 ;;; Code:
 
 ;; Add a vertical completion UI
 (use-package vertico
+  :ensure t
   :custom
   (vertico-cycle t)
   :init
@@ -13,6 +12,7 @@
 
 ;; Adjust completion search behavior
 (use-package orderless
+  :ensure t
   :custom
   (completion-styles '(orderless basic))
   (completion-category-overrides '((file (styles partial-completion))))
@@ -26,11 +26,13 @@
 
 ;; Add documentation alongside the completion items
 (use-package marginalia
+  :ensure t
   :init
   (marginalia-mode))
 
 ;; Add completion at point
 (use-package corfu
+  :ensure t
   :custom
   (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
   ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
@@ -78,7 +80,18 @@
   ;; useful beyond Corfu.
   (read-extended-command-predicate #'command-completion-default-include-p))
 
+(use-package consult
+  :ensure t
+  :bind (("C-x b"   . consult-buffer)
+         ("M-y"     . consult-yank-pop)
+         ("M-g i"   . consult-imenu)
+         ("M-s l"   . consult-line)
+         ("M-s r"   . consult-ripgrep)
+         ("M-s f"   . consult-fd))
+  :hook (completion-list-mode . consult-preview-at-point-mode))
+
 (use-package embark
+  :ensure t
   :bind (("C-."   . embark-act)
          ("C-;"   . embark-dwim)
          ("C-h B" . embark-bindings))
@@ -87,15 +100,6 @@
 
 (use-package embark-consult
   :hook (embark-collect-mode . consult-preview-at-point-mode))
-
-(use-package consult
-  :bind (("C-x b"   . consult-buffer)
-         ("M-y"     . consult-yank-pop)
-         ("M-g i"   . consult-imenu)
-         ("M-s l"   . consult-line)
-         ("M-s r"   . consult-ripgrep)
-         ("M-s f"   . consult-fd))
-  :hook (completion-list-mode . consult-preview-at-point-mode))
 
 (provide 'et-completion)
 ;;; et-completion.el ends here

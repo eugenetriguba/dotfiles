@@ -3,6 +3,7 @@
 ;;; Code:
 
 (use-package eglot
+  :ensure t
   :hook ((python-mode . eglot-ensure)
 	 (go-mode . eglot-ensure))
   :init

@@ -4,7 +4,11 @@
 (require 'vc-git)
 
 (use-package project)
-(use-package magit)
+
+(use-package magit
+  :ensure t)
+
+(setq vc-follow-symlinks t)
 
 (global-set-key (kbd "C-c gu")
                 'et-generate-remote-git-url)

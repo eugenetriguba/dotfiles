@@ -3,6 +3,7 @@
 ;;; Code:
 
 (use-package treesit-auto
+  :ensure t
   :custom
   (treesit-auto-install 'prompt)
   :config
@@ -10,16 +11,17 @@
   (global-treesit-auto-mode))
 
 (use-package sly
+  :ensure t
   :init
   (setq inferior-lisp-program "sbcl"))
 
-(use-package geiser)
-(use-package geiser-guile)
+(use-package geiser
+  :pin "melpa"
+  :ensure t)
 
-(defun geiser-save ()
-  "Save the geiser REPL session."
-  (interactive)
-  (geiser-repl--write-input-ring))
+(use-package geiser-guile
+  :pin "melpa"
+  :ensure t)
 
 (provide 'et-lang)
 ;;; et-lang.el ends here

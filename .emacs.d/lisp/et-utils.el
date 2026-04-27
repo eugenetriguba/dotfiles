@@ -1,7 +1,5 @@
 ;;; et-utils.el --- Utilities for my Emacs configuration -*- lexical-binding: t; -*-
-;;
 ;;; Commentary:
-;;
 ;;; Code:
 
 (defun et-is-desktop-p ()
