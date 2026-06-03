@@ -10,38 +10,23 @@ vim.pack.add {
 }
 
 local lsps = {
-  'harper-ls',
   'lua-language-server',
-  'ansible-language-server',
   'clangd',
-  'gopls',
-  'ty',
   'yaml-language-server',
   'rust-analyzer',
-  'typescript-language-server',
-  'terraform-ls',
   'bash-language-server',
-  'jdtls',
 }
 
 local formatters = {
   'prettierd',
   'stylua',
-  'black',
-  'isort',
   'clang-format',
-  'terraform',
   'shfmt',
-  'google-java-format',
-  'taplo',
 }
 
 local linters = {
   'hadolint',
   'jsonlint',
-  'tflint',
-  'markdownlint',
-  'vale',
   'ruff',
   'shellcheck',
 }

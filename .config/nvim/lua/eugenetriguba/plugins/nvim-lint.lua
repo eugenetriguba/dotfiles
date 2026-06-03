@@ -26,11 +26,7 @@ lint.linters_by_ft = lint.linters_by_ft or {}
 lint.linters_by_ft['cpp'] = { 'cppcheck' }
 lint.linters_by_ft['dockerfile'] = { 'hadolint' }
 lint.linters_by_ft['json'] = { 'jsonlint' }
-lint.linters_by_ft['terraform'] = { 'tflint', 'terraform_validate' }
-lint.linters_by_ft['python'] = { 'ruff' }
-lint.linters_by_ft['markdown'] = { 'markdownlint', 'vale' }
 lint.linters_by_ft['text'] = nil
-lint.linters_by_ft['xml'] = { 'xmllint' }
 lint.linters_by_ft['sh'] = { 'shellcheck' }
 table.insert(lint.linters.shellcheck.args, '-x')
 

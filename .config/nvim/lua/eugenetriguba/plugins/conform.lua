@@ -25,15 +25,9 @@ require('conform').setup {
     c = { 'clang-format' },
     cpp = { 'clang-format' },
     lua = { 'stylua' },
-    go = { 'gofmt' },
-    python = { 'black', 'isort' },
     rust = { 'rustfmt' },
     sh = { 'shfmt' },
-    tf = { 'terraform_fmt' },
-    nix = { 'nixfmt' },
-    java = { 'google-java-format' },
     md = { 'prettierd' },
-    toml = { 'taplo' },
     yaml = { 'prettierd' },
     json = { 'prettierd' },
     javascript = { 'prettierd' },
@@ -41,13 +35,7 @@ require('conform').setup {
     javascriptreact = { 'prettierd' },
     typescriptreact = { 'prettierd' },
     css = { 'prettierd' },
-    htmldjango = { 'prettierd' },
     html = { 'prettierd' },
-  },
-  formatters = {
-    isort = {
-      prepend_args = { '--profile', 'black' },
-    },
   },
 }
 vim.api.nvim_create_user_command('FormatDisable', function(args)

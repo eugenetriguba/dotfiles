@@ -112,18 +112,6 @@ vim.lsp.config('*', {
   capabilities = require('blink.cmp').get_lsp_capabilities(),
 })
 
-vim.lsp.config('harper_ls', {
-  filetypes = { 'markdown', 'gitcommit', 'asciidoc' },
-  settings = {
-    ['harper-ls'] = {
-      diagnosticSeverity = 'warning',
-      linters = {
-        SpellCheck = false,
-      },
-    },
-  },
-})
-
 vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
@@ -136,70 +124,10 @@ vim.lsp.config('lua_ls', {
   },
 })
 
-vim.lsp.config('jdtls', {
-  settings = {
-    java = {
-      configuration = {
-        updateBuildConfiguration = 'interactive',
-        refreshBundles = true,
-      },
-      completion = {
-        favoriteStaticMembers = {
-          'org.hamcrest.MatcherAssert.assertThat',
-          'org.hamcrest.Matchers.*',
-          'org.hamcrest.CoreMatchers.*',
-          'org.junit.jupiter.api.Assertions.*',
-          'java.util.Objects.requireNonNull',
-          'java.util.Objects.requireNonNullElse',
-        },
-      },
-      contentProvider = { preferred = 'fernflower' },
-      eclipse = {
-        downloadSources = true,
-      },
-      implementationsCodeLens = {
-        enabled = true,
-      },
-      inlayHints = {
-        parameterNames = {
-          enabled = 'all',
-        },
-      },
-      maven = {
-        downloadSources = true,
-      },
-      referencesCodeLens = {
-        enabled = true,
-      },
-      references = {
-        includeDecompiledSources = true,
-      },
-      saveActions = {
-        organizeImports = true,
-      },
-      signatureHelp = { enabled = true },
-      sources = {
-        organizeImports = {
-          starThreshold = 9999,
-          staticStarThreshold = 9999,
-        },
-      },
-    },
-  },
-})
-
 vim.lsp.enable {
-  'harper_ls',
   'lua_ls',
-  'ansiblels',
   'clangd',
-  'gopls',
-  'ty',
   'yamlls',
   'rust_analyzer',
-  'ts_ls',
-  'terraformls',
   'bashls',
-  'jdtls',
-  'kotlin_lsp',
 }
