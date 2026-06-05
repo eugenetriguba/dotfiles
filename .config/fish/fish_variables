@@ -1,0 +1,4 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR __fish_initialized:4300
+SETUVAR fish_user_paths:/opt/homebrew/bin\x1e/opt/homebrew/opt/openjdk\x4024/bin\x1e/opt/homebrew/opt/curl/bin\x1e/Users/eugene/Library/pnpm\x1e/Users/eugene/bin\x1e/Users/eugene/\x2elocal/bin
