@@ -112,18 +112,6 @@ vim.lsp.config('*', {
   capabilities = require('blink.cmp').get_lsp_capabilities(),
 })
 
-vim.lsp.config('harper_ls', {
-  filetypes = { 'markdown', 'gitcommit', 'asciidoc' },
-  settings = {
-    ['harper-ls'] = {
-      diagnosticSeverity = 'warning',
-      linters = {
-        SpellCheck = false,
-      },
-    },
-  },
-})
-
 vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
@@ -189,9 +177,7 @@ vim.lsp.config('jdtls', {
 })
 
 vim.lsp.enable {
-  'harper_ls',
   'lua_ls',
-  'ansiblels',
   'clangd',
   'gopls',
   'ty',
@@ -201,5 +187,4 @@ vim.lsp.enable {
   'terraformls',
   'bashls',
   'jdtls',
-  'kotlin_lsp',
 }

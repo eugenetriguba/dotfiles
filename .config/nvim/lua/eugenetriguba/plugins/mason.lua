@@ -10,9 +10,7 @@ vim.pack.add {
 }
 
 local lsps = {
-  'harper-ls',
   'lua-language-server',
-  'ansible-language-server',
   'clangd',
   'gopls',
   'ty',
@@ -40,8 +38,6 @@ local linters = {
   'hadolint',
   'jsonlint',
   'tflint',
-  'markdownlint',
-  'vale',
   'ruff',
   'shellcheck',
 }
